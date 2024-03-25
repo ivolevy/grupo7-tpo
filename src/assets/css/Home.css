@@ -315,8 +315,9 @@
 }
 
 .membersImg{
-    width: 70%;
+    width: 50%;
     height: auto;
+    margin-bottom: 1.5em;
 }
 
 .membersText{

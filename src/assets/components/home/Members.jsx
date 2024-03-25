@@ -1,5 +1,5 @@
 import { FaArrowRight } from "react-icons/fa";
-import g203 from '../../img/g203.png'
+import logitech from '../../img/logitech.png'
 
 const MembersSquareCont = ({ imgSrc, text }) => {
     return (
@@ -20,10 +20,10 @@ export const Members = () => {
               <p className="productsTitleSc">We proudly introduce our powerful members</p>
               <p className="productsText">Find more <FaArrowRight className="icon"/></p>
               <div className="membersContainer">
-                <MembersSquareCont imgSrc={g203} text='hola'/>
-                <MembersSquareCont imgSrc={g203} text='hola'/>
-                <MembersSquareCont imgSrc={g203} text='hola'/>
-                <MembersSquareCont imgSrc={g203} text='hola'/>
+                <MembersSquareCont imgSrc={logitech} text='Logitech'/>
+                <MembersSquareCont imgSrc={logitech} text='hola'/>
+                <MembersSquareCont imgSrc={logitech} text='hola'/>
+                <MembersSquareCont imgSrc={logitech} text='hola'/>
               </div>
           </section>
       </>
