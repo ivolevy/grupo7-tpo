@@ -1,10 +1,10 @@
-import '../../css/Home.css'
 import g502 from '../../img/logitech-g502.png'
 
 export const Header = () => {
   return (
     <header className="header">
           <div className='leftHeader'>
+            <h1 className='headerInnerTitle'>Tech products</h1>
             <h2 className="headerTitle">g502 hero wireless</h2>
             <p className="headerSubtitle">logitech high performance wireless gaming mouse</p>
             <p className="headerDescription">

@@ -1,6 +1,8 @@
+/* HEADER SECTION */
 .header{
     display: flex;
     align-items: center;
+    margin-bottom: 10em;
 }
 
 .leftHeader{
@@ -9,6 +11,12 @@
 
 .rightHeader{
     width: 50%;
+}
+
+.headerInnerTitle{
+    color: #00B8FC;
+    font-size: 0.9em;
+    margin-bottom: -2.9em;
 }
 
 .headerTitle{
@@ -22,7 +30,7 @@
     text-transform: capitalize;
     font-size: 1.7em;
     padding-right: 4vw;
-    color: #4a4a4a;
+    color: #393939;
     margin-top: -0.8em;
 }
 
@@ -43,7 +51,7 @@
 }
 
 .button{
-    padding: 0.8vw  1.8vw  0.8vw  1.8vw;
+    padding: 0.8em 1.8em 0.8em 1.8em;
     margin-right: 1vw;
     text-transform: uppercase;
     border-radius: 0.2vw;
@@ -84,4 +92,181 @@
 #headerImg{
     width: 85%;
     height: auto;
+}
+
+@media(width < 481px){
+
+}
+
+@media(width < 768px){
+    .header{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .leftHeader{
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: 5vw;
+    }
+    
+    .rightHeader{
+        width: 100%;
+    }
+    .headerSubtitle{
+        text-transform: capitalize;
+        font-size: 1.7em;
+        margin-top: -0.8em;
+    }
+    
+    .headerDescription{
+        margin-top: -0.8em;
+        font-size: 0.9em;
+    }
+}
+
+@media(width < 1024px){
+
+}
+
+
+/* PRODUCTS SECTION */
+.products{
+    text-align: center;
+    margin-bottom: 8em;
+}
+
+.productsTitle{
+    text-transform: uppercase;
+    font-size: 3.7em;
+    font-weight: bold;
+    color: #00b9fc38;
+}
+
+.productsTitleSc{
+    color: #fff;
+    font-size: 1.4em;
+    margin-top: -3.4em;
+}
+
+.productsText{
+    color: #00b9fcc3;
+    margin-top: -0.2em;
+}
+
+.productsContainer{
+    margin-top: 8em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.productsSquare{
+    width: calc(33.33% - 1.25em); 
+    background-color: #393939;
+    margin-right: 1.25em;
+    height: auto;
+    border-radius: 1em;
+    color: #fff;
+}
+
+.productsImgContainer{
+    width: 100%;
+    height: auto;
+}
+
+.productsImg{
+    width: 70%;
+    height: auto;
+    margin-top: -5em;
+    margin-bottom: 0.3em;
+}
+
+.productsSquareText{
+    color: #fff;
+    font-size: 1.3em;
+    text-transform: capitalize;
+    padding-bottom: 1em;
+}
+
+@media(width < 768px){
+    .productsContainer{
+        margin-top: 8em;
+        display: flex;
+        flex-direction: column;
+    }
+    .productsSquare{
+        width: calc(100% - 1.25em); 
+        margin-bottom: 4.5em;
+    }
+    .productsImg{
+        width: 60%;
+        height: auto;
+        margin-top: -5em;
+        margin-bottom: 0.3em;
+    }
+    .productsSquareText{
+        font-size: 1.7em;
+        padding-bottom: 1em;
+    }
+}
+
+/* WHY US */
+.whyContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2.8em;
+}
+
+.whyBlock{
+    width: calc(50% - 1.25em); 
+    background-color: #393939;
+    height: auto;
+    border-radius: 1em;
+    color: #fff;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: row;
+}
+
+.whyImgContainer{
+    width: 40%;
+    height: auto;
+}
+
+.whyImg{
+    width: 90%;
+    height: auto;
+    margin-top: -1.2em;
+}
+
+.whyTextContainer{
+    width: 60%;
+    text-align: left;
+    padding: 1em 2em 2em 1em;
+}
+
+.whyContainerTitle{
+    font-size: 1.3em;
+    text-transform: capitalize;
+}
+
+.whyContainerText{
+    font-size: 0.9em;
+}
+
+.icon{
+    font-size: 0.7em;
+}
+
+@media(width < 768px){
+    .whyBlock{
+        width: calc(100%); 
+        border-radius: 1em;
+        margin-bottom: 2em;
+        display: flex;
+        flex-direction: row;
+    }
 }
