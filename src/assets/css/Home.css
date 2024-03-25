@@ -270,3 +270,43 @@
         flex-direction: row;
     }
 }
+
+/* MEMBERS */
+.membersContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2.8em;
+}
+
+.membersSquare{
+    width: calc(25% - 1.25em); 
+    background-color: #393939;
+    height: auto;
+    border-radius: 1em;
+    color: #fff;
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.membersText{
+    margin: 0 auto;
+}
+
+.membersImgContainer{
+    width: 100%;
+    height: auto;
+    margin-top: 1em;
+}
+
+.membersImg{
+    width: 70%;
+    height: auto;
+}
+
+.membersText{
+    margin-bottom: 1em;
+}
