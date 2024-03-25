@@ -181,6 +181,12 @@
     height: auto;
     margin-top: -5em;
     margin-bottom: 0.3em;
+    filter: drop-shadow(0px 50px 30px #000000);
+    transition: all 0.5s ease;
+}
+
+.productsImg:hover{
+    transform: translateY(-10px);
 }
 
 .productsSquareText{
@@ -240,6 +246,12 @@
     width: 90%;
     height: auto;
     margin-top: -1.2em;
+    filter: drop-shadow(0px 30px 20px #000000);
+    transition: all 0.5s ease;
+}
+
+.whyImg:hover{
+    transform: translateY(-10px);
 }
 
 .whyTextContainer{
