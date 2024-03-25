@@ -1,0 +1,87 @@
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.leftHeader{
+    width: 50%;
+}
+
+.rightHeader{
+    width: 50%;
+}
+
+.headerTitle{
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 2.8em;
+    letter-spacing: 0.05em;
+}
+
+.headerSubtitle{
+    text-transform: capitalize;
+    font-size: 1.7em;
+    padding-right: 4vw;
+    color: #4a4a4a;
+    margin-top: -0.8em;
+}
+
+.headerDescription{
+    color: #fff;
+    padding-right: 4vw;
+    margin-top: -0.8em;
+    font-size: 0.9em;
+}
+
+.headerPrice{
+    color: #00B8FC;
+    font-size: 1.4em;
+    text-transform: uppercase;
+}
+
+.headerButtons{
+}
+
+.button{
+    padding: 0.8vw  1.8vw  0.8vw  1.8vw;
+    margin-right: 1vw;
+    text-transform: uppercase;
+    border-radius: 0.2vw;
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.8em;
+}
+
+.button1{
+    background-color: #00B8FC;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.button1:hover{
+    color: #000;
+}
+
+.button2{
+    background-color: transparent;
+    border: 1px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.button2:hover{
+    background-color: #00B8FC;
+    border: 1px solid transparent;
+}
+
+#imgHeaderContainer{
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    display: flex;
+    align-items: end;
+}
+
+#headerImg{
+    width: 85%;
+    height: auto;
+}
