@@ -1,10 +1,72 @@
-#nav{
+#nav {
     width: 100%;
-    background-color: #1c1c1c; /*1c1c1c*/
-    margin-bottom: 2vw !important;
-    height: 5em;
-    padding-top: 0vw !important;
+    background-color: #1c1c1c; /**/
+    height: auto;
+    padding: 0vw !important;
+    margin-bottom: 1em;
 }
 
-.pdTop{
+.logoNav{
+    margin: -0.6em;
 }
+  
+.navItem {
+    color: #c3c3c3;
+    font-family: 'brown-regular';
+    margin-right: 1em;
+    position: relative;
+    transition: color 0.5s ease;
+}
+  
+#navButton {
+    margin-left: 1.7em;
+    background-color: transparent;
+    border: 1px solid #c3c3c3;
+    color: #c3c3c3;
+    padding: 0.6vw 2.1vw 0.6vw 2.1vw;
+    transition: all 0.5s ease;
+}
+
+#navButton:hover{
+    background-color: #00b8fc;
+    border: 1px solid transparent;
+    color: #000;
+
+}
+  
+.navItem:hover:not(.active)::after {
+    width: 100%; /* Ajustar la anchura completa del borde inferior al hacer hover */
+}
+  
+.navItem:active {
+    color: #00b8fc !important;
+}
+  
+.navItem.active::after {
+    width: 100%; /* Ajustar la anchura completa del borde inferior cuando está activo */
+}
+  
+.navItem.active {
+    color: #00b8fc !important;
+    border-bottom: 1px solid #00b8fc;
+}
+
+.navItem:hover{
+    color: #00b8fc !important;
+}
+  
+.navItem::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: #00b8fc;
+    transition: width 0.3s ease;
+}
+
+#collasible-nav-dropdown{
+    color: #c3c3c3 !important;
+}
+  
