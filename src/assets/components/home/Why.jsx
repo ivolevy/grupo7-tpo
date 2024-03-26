@@ -21,10 +21,10 @@ const WhyBlock = ({ imgSrc, title, text }) => {
 export const Why = () => {
   return (
     <>
-        <section className="products">
-            <h2 className="productsTitle">why us?</h2>
-            <p className="productsTitleSc">We provide more than high-tech products!</p>
-            <p className="productsText">Find more <FaArrowRight className='icon'/></p>
+        <section className="titleContainer">
+            <h2 className="tcTitle">why us?</h2>
+            <p className="tcTitleSc">We provide more than high-tech products!</p>
+            <p className="tcText">Find more <FaArrowRight className='icon'/></p>
             <div className="whyContainer">
             <div className="whyContainer">
               <WhyBlock imgSrc={guarantee} title="Limited Guarantee" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga commodi ullam itaque cumque officia. Quisquam cum enim blanditiis a eveniet possimus." />

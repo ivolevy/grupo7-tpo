@@ -17,10 +17,10 @@ const ProductSquare = ({ imgSrc, text }) => {
 export const Products = () => {
   return (
     <>
-        <section className="products">
-            <h2 className="productsTitle">products</h2>
-            <p className="productsTitleSc">Wich type of gear are you looking for?</p>
-            <p className="productsText">Find more <FaArrowRight className='icon'/></p>
+        <section className="titleContainer">
+            <h2 className="tcTitle">products</h2>
+            <p className="tcTitleSc">Wich type of gear are you looking for?</p>
+            <p className="tcText">Find more <FaArrowRight className='icon'/></p>
             <div className="productsContainer">
                 <ProductSquare imgSrc={g203} text="Gaming" />
                 <ProductSquare imgSrc={keyboard} text="Graphic design" />

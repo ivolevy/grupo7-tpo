@@ -16,7 +16,7 @@
 .headerInnerTitle{
     color: #00B8FC;
     font-size: 0.9em;
-    margin-bottom: -2.9em;
+    margin-bottom: -0.3em;
 }
 
 .headerTitle{
@@ -119,11 +119,13 @@
         text-transform: capitalize;
         font-size: 1.7em;
         margin-top: -0.8em;
+        padding-right: 0vw;
     }
     
     .headerDescription{
         margin-top: -0.8em;
         font-size: 0.9em;
+        padding-right: 0vw;
     }
 }
 
@@ -131,30 +133,30 @@
 
 }
 
-
-/* PRODUCTS SECTION */
-.products{
+.titleContainer{
     text-align: center;
     margin-bottom: 8em;
 }
 
-.productsTitle{
+.tcTitle{
     text-transform: uppercase;
     font-size: 3.7em;
     font-weight: bold;
     color: #00b9fc38;
 }
 
-.productsTitleSc{
+.tcTitleSc{
     color: #fff;
     font-size: 1.4em;
-    margin-top: -3.4em;
+    margin-top: -1.7em;
 }
 
-.productsText{
+.tcText{
     color: #00b9fcc3;
     margin-top: -0.2em;
 }
+
+/* PRODUCTS SECTION */
 
 .productsContainer{
     margin-top: 8em;
@@ -306,6 +308,7 @@
 
 .membersText{
     margin: 0 auto;
+    font-size: 1.2em;
 }
 
 .membersImgContainer{
@@ -315,7 +318,7 @@
 }
 
 .membersImg{
-    width: 50%;
+    width: 45%;
     height: auto;
     margin-bottom: 1.5em;
 }
