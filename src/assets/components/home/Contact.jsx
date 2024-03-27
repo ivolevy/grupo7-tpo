@@ -4,7 +4,7 @@ import { IoLogoInstagram } from "react-icons/io5";
 import { PiTiktokLogo } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 
-export const Contact = () => {
+export const HomeContact = () => {
   return (
     <>
       <section className="contact">
