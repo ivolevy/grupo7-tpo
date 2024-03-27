@@ -19,7 +19,7 @@
 }
   
 #navButton {
-    margin-left: 1.7em;
+    margin-left: 0.5em;
     background-color: transparent;
     border: 1px solid #c3c3c3;
     color: #c3c3c3;
@@ -67,6 +67,14 @@
 }
 
 #collasible-nav-dropdown{
-    color: #c3c3c3 !important;
+    color: #c3c3c3;
+    transition: all 0.5 ease;
+}
+
+#collasible-nav-dropdown:hover{
+    color: #00b8fc !important;
 }
   
+@media(width < 992px){
+    
+}
