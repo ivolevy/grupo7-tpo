@@ -1,6 +1,6 @@
-import { FaArrowRight } from "react-icons/fa";
 import logitech from '../../img/logitech.png';
 import elgato from '../../img/elgato.png';
+import {TitleCont} from './comp/TitleCont'
 
 const MembersSquareCont = ({ imgSrc, text }) => {
     return (
@@ -17,9 +17,7 @@ export const Members = () => {
     return (
       <>
           <section className="titleContainer">
-              <h2 className="tcTitle">members</h2>
-              <p className="tcTitleSc">We proudly introduce our powerful members</p>
-              <p className="tcText">Find more <FaArrowRight className="icon"/></p>
+                <TitleCont title="members" subtitle="We proudly introduce our powerful members"/>
               <div className="membersContainer">
                 <MembersSquareCont imgSrc={logitech} text='Logitech'/>
                 <MembersSquareCont imgSrc={elgato} text='El Gato'/>

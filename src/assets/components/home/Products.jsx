@@ -1,7 +1,7 @@
 import g203 from '../../img/g203.png'
 import keyboard from '../../img/keyboard.png'
 import office from '../../img/office.png'
-import { FaArrowRight } from "react-icons/fa";
+import {TitleCont} from './comp/TitleCont'
 
 const ProductSquare = ({ imgSrc, text }) => {
     return (
@@ -18,9 +18,7 @@ export const Products = () => {
   return (
     <>
         <section className="titleContainer">
-            <h2 className="tcTitle">products</h2>
-            <p className="tcTitleSc">Wich type of gear are you looking for?</p>
-            <p className="tcText">Find more <FaArrowRight className='icon'/></p>
+            <TitleCont title="products" subtitle="Wich type of gear are you looking for?"/>
             <div className="productsContainer">
                 <ProductSquare imgSrc={g203} text="Gaming" />
                 <ProductSquare imgSrc={keyboard} text="Graphic design" />

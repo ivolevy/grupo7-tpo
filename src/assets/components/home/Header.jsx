@@ -16,7 +16,7 @@ export const Header = () => {
             <div className="headerButtons">
                 <button className="button button1">Add to cart</button>
                 <button className="button button2">See details</button>
-          </div>
+            </div>
           </div>
           <div className="rightHeader">
             <div className='imgHeaderContainer'>

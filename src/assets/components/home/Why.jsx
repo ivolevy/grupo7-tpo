@@ -2,7 +2,7 @@ import guarantee from '../../img/guarantee.png'
 import savings from '../../img/savings.png'
 import computer from '../../img/computer.png'
 import assistance from '../../img/assistance.png'
-import { FaArrowRight } from "react-icons/fa";
+import {TitleCont} from './comp/TitleCont'
 
 const WhyBlock = ({ imgSrc, title, text }) => {
   return (
@@ -22,9 +22,7 @@ export const Why = () => {
   return (
     <>
         <section className="titleContainer">
-            <h2 className="tcTitle">why us?</h2>
-            <p className="tcTitleSc">We provide more than high-tech products!</p>
-            <p className="tcText">Find more <FaArrowRight className='icon'/></p>
+            <TitleCont title="why us?" subtitle="We provide more than high-tech products!"/>
             <div className="whyContainer">
             <div className="whyContainer">
               <WhyBlock imgSrc={guarantee} title="Limited Guarantee" text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga commodi ullam itaque cumque officia. Quisquam cum enim blanditiis a eveniet possimus." />
