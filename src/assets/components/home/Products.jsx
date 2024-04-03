@@ -1,6 +1,6 @@
-import g203 from '../../img/g203.png'
-import keyboard from '../../img/keyboard.png'
-import office from '../../img/office.png'
+import g203 from '../../img/productsHome//g203.png'
+import keyboard from '../../img/productsHome//keyboard.png'
+import office from '../../img/productsHome//office.png'
 import {TitleCont} from './comp/TitleCont'
 
 const ProductSquare = ({ imgSrc, text }) => {

@@ -1,5 +1,5 @@
-import logitech from '../../img/logitech.png';
-import elgato from '../../img/elgato.png';
+import logitech from '../../img/members/logitech.png';
+import elgato from '../../img/members/elgato.png';
 import {TitleCont} from './comp/TitleCont'
 
 const MembersSquareCont = ({ imgSrc, text }) => {

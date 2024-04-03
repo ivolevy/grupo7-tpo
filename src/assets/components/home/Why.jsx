@@ -1,7 +1,7 @@
-import guarantee from '../../img/guarantee.png'
-import savings from '../../img/savings.png'
-import computer from '../../img/computer.png'
-import assistance from '../../img/assistance.png'
+import guarantee from '../../img/why/guarantee.png'
+import savings from '../../img/why/savings.png'
+import computer from '../../img/why/computer.png'
+import assistance from '../../img/why/assistance.png'
 import {TitleCont} from './comp/TitleCont'
 
 const WhyBlock = ({ imgSrc, title, text }) => {
