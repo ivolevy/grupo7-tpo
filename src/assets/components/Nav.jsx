@@ -51,10 +51,10 @@ export const CustomNav = () => {
             >
               Pricing
             </Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown" className='navItem'>
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown title="Productos" id="collasible-nav-dropdown" className='navItem'>
+              <NavDropdown.Item href="#action/3.1">Gaming</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Graphic design</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Office & others</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
             </NavDropdown>
