@@ -4,7 +4,7 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="leftHeader">
-        <h1 className="headerInnerTitle">Tech products</h1>
+        <h1 className="headerInnerTitle text-lg">Tech products</h1>
         <h2 className="headerTitle">g502 hero wireless</h2>
         <p className="headerSubtitle">
           logitech high performance wireless gaming mouse

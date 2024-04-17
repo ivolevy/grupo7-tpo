@@ -1,7 +1,9 @@
+import { CustomNav } from "./assets/components/Nav";
+
 export const Products = () => {
   return (
     <>
-        <h1>productos</h1>
+      <CustomNav />
     </>
-  )
-}
+  );
+};

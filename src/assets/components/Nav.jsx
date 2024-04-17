@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../img/logo.png';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../css/Nav.css';
+import React, { useState } from "react";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import logo from "../img/logo.png";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../css/Nav.css";
+import { CiShoppingCart } from "react-icons/ci";
+import { FaRegUser } from "react-icons/fa";
 
 export const CustomNav = () => {
-  const [activeLink, setActiveLink] = useState('home');
+  const [activeLink, setActiveLink] = useState("home");
 
   const handleNavLinkClick = (link) => {
     setActiveLink(link);
@@ -28,39 +30,38 @@ export const CustomNav = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end">
-          <Nav className="mr-auto">
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="flex justify-end"
+        >
+          <Nav>
             <Nav.Link
-              href="#home"
-              className={`navItem ${activeLink === 'home' ? 'active' : ''}`}
-              onClick={() => handleNavLinkClick('home')}
+              href="/"
+              className={`navItem ${activeLink === "home" ? "active" : ""}`}
+              onClick={() => handleNavLinkClick("home")}
             >
               Home
             </Nav.Link>
+
             <Nav.Link
-              href="#features"
-              className={`navItem ${activeLink === 'features' ? 'active' : ''}`}
-              onClick={() => handleNavLinkClick('features')}
+              href="products"
+              className={`navItem ${activeLink === "products" ? "active" : ""}`}
+              onClick={() => handleNavLinkClick("contact")}
             >
-              Features
+              Products
             </Nav.Link>
+
             <Nav.Link
-              href="#pricing"
-              className={`navItem ${activeLink === 'pricing' ? 'active' : ''}`}
-              onClick={() => handleNavLinkClick('pricing')}
+              href="contact"
+              className={`navItem ${activeLink === "contact" ? "active" : ""}`}
+              onClick={() => handleNavLinkClick("contact")}
             >
-              Pricing
+              Contact
             </Nav.Link>
-            <NavDropdown title="Productos" id="collasible-nav-dropdown" className='navItem'>
-              <NavDropdown.Item href="#action/3.1">Gaming</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Graphic design</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Office & others</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Button id='navButton'>Contact</Button>
+            <Nav.Link>
+              <CiShoppingCart id="cart" className="text-blue-600 text-2xl" />
+            </Nav.Link>
+            <FaRegUser className="flex align-middle m-auto w-10 text-blue-600" />
           </Nav>
         </Navbar.Collapse>
       </Container>
