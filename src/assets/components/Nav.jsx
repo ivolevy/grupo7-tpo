@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from 'react-router-dom';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -8,8 +8,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Nav.css";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
+import { NavDropdown } from "react-bootstrap";
+
 
 export const CustomNav = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogout = () => {
+    // Lógica para cerrar sesión
+    setIsLoggedIn(false);
+  };
+
   return (
     <Navbar collapseOnSelect expand="lg" id="nav" sticky="top">
       <Container>
@@ -30,9 +39,9 @@ export const CustomNav = () => {
               to="/"
               className="navItem"
               activeClassName="active"
-              exact // Esto asegura que el NavLink se active solo cuando la ruta sea exacta
+              exact
             >
-              Home
+              Inicio
             </Nav.Link>
             <Nav.Link
               as={NavLink}
@@ -40,20 +49,24 @@ export const CustomNav = () => {
               className="navItem"
               activeClassName="active"
             >
-              Products
+              Productos
             </Nav.Link>
             <Nav.Link
               as={NavLink}
-              to="/contact"
+              to="contact"
               className="navItem"
               activeClassName="active"
             >
-              Contact
+              Contacto
             </Nav.Link>
-            <Nav.Link as={Link} to="/login" className="navItem">
-              <FaRegUser className="flex align-middle m-auto w-10 text-blue-600" />
-            </Nav.Link>
-
+            <NavDropdown title={<FaRegUser className="text-blue-600"/>} id="basic-nav-dropdown" className="navItem" activeClassName="active">
+              <NavDropdown.Item href="#action/3.1">
+                Inicia sesión
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Registrarse
+              </NavDropdown.Item>
+            </NavDropdown>
             <Nav.Link as={Link} to="/cart">
               <CiShoppingCart id="cart" className="text-blue-600 text-xl flex align-middle m-auto w-10" />
             </Nav.Link>
@@ -63,3 +76,5 @@ export const CustomNav = () => {
     </Navbar>
   );
 };
+
+

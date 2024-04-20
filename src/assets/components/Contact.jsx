@@ -1,13 +1,13 @@
-import {TitleCont} from './comp/TitleCont'
-import logo from '../../img/logo.png'
-import { IoLogoInstagram } from "react-icons/io5";
-import { PiTiktokLogo } from "react-icons/pi";
-import { FaXTwitter } from "react-icons/fa6";
+import {TitleCont} from './home/comp/TitleCont'
+import logo from '../img/logo.png'
+import { IoLogoInstagram } from "react-icons/io5"
+import { PiTiktokLogo } from "react-icons/pi"
+import { FaXTwitter } from "react-icons/fa6"
 
-export const HomeContact = () => {
+export const Contact = () => {
   return (
     <>
-      <section className="contact">
+      <section className="contact" id='contact'>
         <TitleCont title="contact" subtitle="some ways for you to contact us"/>
         <div className="contactImg">
           <img src={logo} alt="" id='cImg'/>
