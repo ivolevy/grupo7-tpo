@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, NavLink } from 'react-router-dom';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../img/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Nav.css";
@@ -11,16 +10,10 @@ import { CiShoppingCart } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 
 export const CustomNav = () => {
-  const [activeLink, setActiveLink] = useState("home");
-
-  const handleNavLinkClick = (link) => {
-    setActiveLink(link);
-  };
-
   return (
     <Navbar collapseOnSelect expand="lg" id="nav" sticky="top">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/">
           <img
             src={logo}
             width="110"
@@ -30,38 +23,40 @@ export const CustomNav = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse
-          id="responsive-navbar-nav"
-          className="flex justify-end"
-        >
+        <Navbar.Collapse id="responsive-navbar-nav" className="flex justify-end">
           <Nav>
             <Nav.Link
-              href="/"
-              className={`navItem ${activeLink === "home" ? "active" : ""}`}
-              onClick={() => handleNavLinkClick("home")}
+              as={NavLink}
+              to="/"
+              className="navItem"
+              activeClassName="active"
+              exact // Esto asegura que el NavLink se active solo cuando la ruta sea exacta
             >
               Home
             </Nav.Link>
-
             <Nav.Link
-              href="products"
-              className={`navItem ${activeLink === "products" ? "active" : ""}`}
-              onClick={() => handleNavLinkClick("contact")}
+              as={NavLink}
+              to="/products"
+              className="navItem"
+              activeClassName="active"
             >
               Products
             </Nav.Link>
-
             <Nav.Link
-              href="contact"
-              className={`navItem ${activeLink === "contact" ? "active" : ""}`}
-              onClick={() => handleNavLinkClick("contact")}
+              as={NavLink}
+              to="/contact"
+              className="navItem"
+              activeClassName="active"
             >
               Contact
             </Nav.Link>
-            <Nav.Link>
-              <CiShoppingCart id="cart" className="text-blue-600 text-2xl" />
+            <Nav.Link as={Link} to="/login" className="navItem">
+              <FaRegUser className="flex align-middle m-auto w-10 text-blue-600" />
             </Nav.Link>
-            <FaRegUser className="flex align-middle m-auto w-10 text-blue-600" />
+
+            <Nav.Link as={Link} to="/cart">
+              <CiShoppingCart id="cart" className="text-blue-600 text-xl flex align-middle m-auto w-10" />
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

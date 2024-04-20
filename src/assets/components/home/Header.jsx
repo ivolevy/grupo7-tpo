@@ -6,9 +6,6 @@ export const Header = () => {
       <div className="leftHeader">
         <h1 className="headerInnerTitle text-lg">Tech products</h1>
         <h2 className="headerTitle">g502 hero wireless</h2>
-        <p className="headerSubtitle">
-          logitech high performance wireless gaming mouse
-        </p>
         <p className="headerDescription">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta,
           doloribus vitae fugit rem rerum alias esse possimus, ex iusto totam

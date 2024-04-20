@@ -27,18 +27,9 @@
   letter-spacing: 0.05em;
 }
 
-.headerSubtitle {
-  text-transform: capitalize;
-  font-size: 1.7em;
-  padding-right: 4vw;
-  color: #393939;
-  margin-top: -0.3em;
-}
-
 .headerDescription {
   color: #fff;
   padding-right: 4vw;
-  margin-top: -0.8em;
   font-size: 0.9em;
 }
 
@@ -115,15 +106,8 @@
   .rightHeader {
     width: 100%;
   }
-  .headerSubtitle {
-    text-transform: capitalize;
-    font-size: 1.7em;
-    margin-top: -0.8em;
-    padding-right: 0vw;
-  }
 
   .headerDescription {
-    margin-top: -0.8em;
     font-size: 0.9em;
     padding-right: 0vw;
   }
