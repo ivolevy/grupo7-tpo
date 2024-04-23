@@ -5,18 +5,24 @@ export function LoginForm() {
     const [user, setUser] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(false)
+    const [error2,setError2] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        let usuario = sessionStorage.getItem('user')
+        let contraseña = sessionStorage.getItem('password')
 
-        if(user == '' || password == ''){
+        if(user != usuario || password != contraseña){
             setError(true)
             return
         }
 
         setError(false)
+        window.location.assign("/")
         
     }
+
+
 
     return (
         <section className="flex flex-col items-center justify-center">
@@ -46,7 +52,7 @@ export function LoginForm() {
                     Iniciar sesión
                 </button>
             </form>
-            {error && <p className="text-red-600 mt-4">Todos los campos son obligatorios</p>}
+            {error && <p className="text-red-600 mt-4">La contraseña o el usuario no coinciden</p>}
         </section>
     )
 }
