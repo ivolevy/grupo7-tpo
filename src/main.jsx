@@ -1,11 +1,16 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+/* Views */
 import { Home } from "./Home";
+/* Product views */
 import { Products } from "./Products";
+import { Product } from './Product';
+/* Log views */
 import { Login } from "./Login";
 import { Register } from "./Register";
-import { UserView } from "./UserView";
+/* Buy views */
+import { Cart } from "./Cart";
 import "./assets/css/Main.css";
 
 createRoot(document.getElementById("root")).render(
@@ -13,9 +18,10 @@ createRoot(document.getElementById("root")).render(
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/products" element={<Products />} />
+      <Route path="/product" element={<Product />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/user" element={<UserView />} />    
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   </BrowserRouter>
 );

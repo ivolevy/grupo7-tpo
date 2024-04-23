@@ -1,0 +1,8 @@
+.productImgContainer{
+    height: 100%;
+}
+
+.productImg{
+    height: 55vh;
+    width: auto;
+}

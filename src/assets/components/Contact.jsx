@@ -19,7 +19,7 @@ export const Contact = () => {
         </div>
         <div className="contactSocialMedia">
           <p className='socialMediaText'>Social media</p>
-          <div className='contactIcons'>
+          <div className='contactIcons display-flex flex-row'>
             <span><IoLogoInstagram className='socialIcon'/></span>
             <span><PiTiktokLogo className='socialIcon'/></span>
             <span><FaXTwitter className='socialIcon'/></span>

@@ -20,7 +20,7 @@ export const CustomNav = () => {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" id="nav" sticky="top">
+    <Navbar collapseOnSelect expand="lg" id="nav" sticky="top" className="w-full bg-gray-bizio py-0 mb-4">
       <Container>
         <Navbar.Brand as={Link} to="/">
           <img
@@ -41,7 +41,7 @@ export const CustomNav = () => {
               activeClassName="active"
               exact
             >
-              Inicio
+              Home
             </Nav.Link>
             <Nav.Link
               as={NavLink}
@@ -49,22 +49,22 @@ export const CustomNav = () => {
               className="navItem"
               activeClassName="active"
             >
-              Productos
+              Products
             </Nav.Link>
             <Nav.Link
               as={NavLink}
-              to="contact"
+              to="/contact"
               className="navItem"
               activeClassName="active"
             >
-              Contacto
+              Contact
             </Nav.Link>
             <NavDropdown title={<FaRegUser className="text-blue-600"/>} id="basic-nav-dropdown" className="navItem" activeClassName="active">
-              <NavDropdown.Item href="#action/3.1">
-                Inicia sesión
+              <NavDropdown.Item href="/login">
+                Log in
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Registrarse
+              <NavDropdown.Item href="/register">
+                Register
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Link as={Link} to="/cart">
