@@ -1,0 +1,19 @@
+.contact{
+    display:flex; 
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    padding: 2em;
+    background-color: #393939;
+    border-radius: 1em;
+}
+
+.left{
+    width: 50%;
+}
+
+.right{
+    width: 50%;
+}
+
+

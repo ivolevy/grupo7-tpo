@@ -12,6 +12,7 @@ import { Register } from "./Register";
 /* Buy views */
 import { Cart } from "./Cart";
 import "./assets/css/Main.css";
+import { Contact } from "./Contact";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")).render(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   </BrowserRouter>
 );
