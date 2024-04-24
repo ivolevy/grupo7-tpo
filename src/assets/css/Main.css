@@ -3,13 +3,17 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "brown-regular";
-  src: url("../fonts/BrownStd-Regular/BrownStd-Regular.woff2") format("woff2"),
-    url("../fonts/BrownStd-Regular/BrownStd-Regular.woff") format("woff");
+	font-family: "brown-regular";
+	src: url("../fonts/BrownStd-Regular/BrownStd-Regular.woff2") format("woff2"),
+		url("../fonts/BrownStd-Regular/BrownStd-Regular.woff") format("woff");
 }
 
 body {
-  background-color: #1c1c1c;
-  padding: 0 8vw 0 8vw;
-  font-family: "brown-regular";
+	background-color: #1c1c1c;
+	padding: 0 8vw 0 8vw;
+	font-family: "brown-regular";
+}
+
+.background-color {
+	background-color: #1c1c1c;
 }
