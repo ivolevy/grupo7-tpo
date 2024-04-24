@@ -62,3 +62,9 @@ CardProduct.propTypes = {
 	desc: PropTypes.string.isRequired,
 	precio: PropTypes.number.isRequired,
 };
+
+CardProduct.defaultProps = {
+	imagen: "https://placehold.co/600x400/png",
+	desc: "Producto sin registrar",
+	precio: 0,
+};
