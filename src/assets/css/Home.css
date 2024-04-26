@@ -188,6 +188,7 @@
   .productsImg {
     width: 60%;
     height: auto;
+    margin: 0 auto;
     margin-top: -5em;
     margin-bottom: 0.3em;
   }
@@ -337,6 +338,10 @@
 
 .contactSocialMedia {
   margin: 0 auto;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .socialMediaText {
@@ -348,12 +353,15 @@
   color: #393939;
 }
 
+
+
 .contactIcons {
   margin: 0 auto;
+  display: flex;  
+  flex-direction: row;
 }
 
 .socialIcon {
-  color: (--blue-bizio);
   font-size: 1.9em;
   padding: 0.4vw;
 }

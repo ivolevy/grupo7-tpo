@@ -1,9 +1,11 @@
-import React from "react";
+import { CustomNav } from './assets/components/Nav'
 
 export const Cart = () => {
 	function createProduct() {}
 
 	return (
+		<>
+		<CustomNav />
 		<div className="h-screen background-color pt-20">
 			<h1 className="mb-10 text-center text-2xl font-bold text-white">
 				Cart Items
@@ -85,5 +87,6 @@ export const Cart = () => {
 				</div>
 			</div>
 		</div>
+		</>
 	);
 };

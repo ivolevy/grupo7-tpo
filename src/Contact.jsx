@@ -12,9 +12,9 @@ export const Contact = () => {
             <h1 className="tittle">Contactanos!</h1>
             <h2 className="subtittle">Lorem ipsum dolor sit.</h2>
             <div className="data">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span>apsijas@asjapsj.com</span>
+                <span>98918201890990</span>
+                <span>aisagspi</span>
             </div>
         </div>
 
