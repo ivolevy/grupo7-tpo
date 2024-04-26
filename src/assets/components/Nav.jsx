@@ -36,7 +36,7 @@ export const CustomNav = () => {
 						alt="React Bootstrap logo"
 					/>
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+				<Navbar.Toggle aria-controls="responsive-navbar-nav" className="bg-[#393939]"/>
 				<Navbar.Collapse
 					id="responsive-navbar-nav"
 					className="flex justify-end"
@@ -76,10 +76,15 @@ export const CustomNav = () => {
 							<NavDropdown.Item href="/login">Log in</NavDropdown.Item>
 							<NavDropdown.Item href="/register">Register</NavDropdown.Item>
 						</NavDropdown>
-						<Nav.Link as={Link} to="/cart">
+						<Nav.Link
+							as={NavLink}
+							to="/cart"
+							className="navItem"
+							activeClassName="active"
+						>
 							<CiShoppingCart
 								id="cart"
-								className="text-blue-600 text-xl flex align-middle m-auto w-10"
+								className="text-blue-600 pr-7 text-xl w-12"
 							/>
 						</Nav.Link>
 					</Nav>
