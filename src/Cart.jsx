@@ -6,7 +6,7 @@ export const Cart = () => {
 	return (
 		<>
 		<CustomNav />
-		<div className="h-screen background-color pt-20">
+		<div className="h-screen">
 			<h1 className="mb-10 text-center text-2xl font-bold text-white">
 				Cart Items
 			</h1>

@@ -68,7 +68,7 @@ export const CustomNav = () => {
 							Contact
 						</Nav.Link>
 						<NavDropdown
-							title={<FaRegUser className="text-blue-600" />}
+							title={<FaRegUser className="text-blue-bizio" />}
 							id="basic-nav-dropdown"
 							className="navItem"
 							activeClassName="active"
@@ -76,18 +76,19 @@ export const CustomNav = () => {
 							<NavDropdown.Item href="/login">Log in</NavDropdown.Item>
 							<NavDropdown.Item href="/register">Register</NavDropdown.Item>
 						</NavDropdown>
+						<div className="line"></div>
 						<Nav.Link
 							as={NavLink}
 							to="/cart"
-							className="navItem"
+							className=""
 							activeClassName="active"
 						>
 							<CiShoppingCart
 								id="cart"
-								className="text-blue-600 pr-7 text-xl w-12"
+								className="text-blue-bizio mt-[-4px] text-2xl w-12"
 							/>
 						</Nav.Link>
-					</Nav>
+					</Nav>		
 				</Navbar.Collapse>
 			</Container>
 		</Navbar>

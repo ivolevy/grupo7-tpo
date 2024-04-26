@@ -66,7 +66,15 @@
 #collasible-nav-dropdown:hover{
     color: #00b8fc !important;
 }
-  
-@media(width < 992px){
-    
+
+.line{
+    width: 2px;
+    height: 30px;
+    background-color: gray;
 }
+  
+.cartItem{
+    background-color: #393939;
+    border-radius: 1em;
+}
+
