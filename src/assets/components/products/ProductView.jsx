@@ -2,7 +2,7 @@ import mouse from '../../img/logitech-g502.png';
 import '../../css/Product.css'
 import { Link } from "react-router-dom";
 import { CardProduct } from '../products/comp/CardProduct';
-
+import { Footer } from '../Footer'
 
 export const ProductView = () => {
   return (
@@ -27,8 +27,8 @@ export const ProductView = () => {
       </div>
     </div>
 
-    <div className='mx-auto mt-[8em] text-white uppercase flex justify-center flex-col  align-middle text-center'>
-      <h2 className='text-3xl'>related products</h2>
+    <div className='mx-auto mt-[8em] mb-[8em] text-white uppercase flex justify-center flex-col  align-middle text-center'>
+      <h2 className='text-2xl'>related products</h2>
       <div className="mx-auto max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex justify-center">
 				<Link to="/product">
 					<CardProduct
@@ -60,6 +60,7 @@ export const ProductView = () => {
 				</Link>
 			</div>
     </div>
+    <Footer />
     </>
   );
 };
