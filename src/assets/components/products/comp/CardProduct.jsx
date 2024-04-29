@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export const CardProduct = ({ imagen, desc, precio }) => {
 	return (
-		<article className="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
+		<article className="rounded-xl bg-gray-element p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300">
 			<a href="#">
 				<div className="relative flex items-end overflow-hidden rounded-xl">
 					<img src={imagen} alt="Hotel Photo" />
@@ -27,10 +27,10 @@ export const CardProduct = ({ imagen, desc, precio }) => {
 				</div>
 
 				<div className="mt-1 p-2">
-					<h2 className="text-slate-700">{desc}</h2>
+					<h2 className="text-white">{desc}</h2>
 
 					<div className="mt-3 flex items-end justify-between">
-						<p className="text-lg font-bold text-blue-500">{precio}</p>
+						<p className="text-lg text-blue-500">{precio}</p>
 
 						<div className="flex items-center space-x-1.5 rounded-lg bg-blue-500 px-4 py-1.5 text-white duration-100 hover:bg-blue-600">
 							<svg
