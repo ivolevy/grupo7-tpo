@@ -5,7 +5,7 @@
       "description": "Teclado mecánico con retroiluminación RGB personalizable.",
       "brand": "logitech",
       "price": 89.99,
-      "image": "keyboard.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": true,
       "discountAmount": 10
     },
@@ -15,7 +15,7 @@
       "description": "Mouse ergonómico diseñado para gaming, con cable trenzado.",
       "brand": "logitech",
       "price": 49.99,
-      "image": "mouse.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -25,7 +25,7 @@
       "description": "Auriculares inalámbricos con sonido envolvente y micrófono retráctil.",
       "brand": "logitech",
       "price": 129.99,
-      "image": "headset.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": true,
       "discountAmount": 20
     },
@@ -35,7 +35,7 @@
       "description": "Mousepad grande y extendido para mayor precisión y comodidad.",
       "brand": "logitech",
       "price": 19.99,
-      "image": "mousepad.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -45,7 +45,7 @@
       "description": "Silla gaming ergonómica con soporte lumbar y reposabrazos ajustables.",
       "brand": "logitech",
       "price": 249.99,
-      "image": "chair.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": true,
       "discountAmount": 30
     },
@@ -55,7 +55,7 @@
       "description": "Monitor curvo de alta definición para una experiencia inmersiva en gaming.",
       "brand": "logitech",
       "price": 299.99,
-      "image": "monitor.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -65,7 +65,7 @@
       "description": "Combo de teclado y mouse inalámbricos con conectividad Bluetooth.",
       "brand": "logitech",
       "price": 79.99,
-      "image": "keyboard_mouse.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -75,7 +75,7 @@
       "description": "Cámara web de alta definición para streaming y videoconferencias.",
       "brand": "logitech",
       "price": 69.99,
-      "image": "webcam.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -85,7 +85,7 @@
       "description": "Micrófono de condensador para grabación de voz y streaming.",
       "brand": "logitech",
       "price": 59.99,
-      "image": "microphone.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     },
@@ -95,7 +95,7 @@
       "description": "Alfombrilla térmica con iluminación RGB y superficie de tela suave.",
       "brand": "logitech",
       "price": 39.99,
-      "image": "thermal_pad.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": true,
       "discountAmount": 5
     },
@@ -105,7 +105,7 @@
       "description": "Volante y pedales para simulador de carreras compatible con PC y consolas.",
       "brand": "logitech",
       "price": 199.99,
-      "image": "steering_wheel.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": true,
       "discountAmount": 15
     },
@@ -115,7 +115,7 @@
       "description": "Tarjeta gráfica de alta gama para rendimiento óptimo en juegos AAA.",
       "brand": "logitech",
       "price": 499.99,
-      "image": "gpu.jpg",
+      "image": "src/assets/img/logo.png",
       "discounted": false,
       "discountAmount": 0
     }
