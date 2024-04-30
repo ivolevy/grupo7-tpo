@@ -80,12 +80,12 @@ export const CustomNav = () => {
 						<Nav.Link
 							as={NavLink}
 							to="/cart"
-							className=""
+							className="iconCart"
 							activeClassName="active"
 						>
 							<CiShoppingCart
 								id="cart"
-								className="text-blue-bizio mt-[-4px] text-2xl w-12"
+								className=" text-blue-bizio mt-[-4px] text-2xl w-12"
 							/>
 						</Nav.Link>
 					</Nav>		
