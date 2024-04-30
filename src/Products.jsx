@@ -1,47 +1,27 @@
 import { CustomNav } from "./assets/components/Nav";
-import { useEffect } from "react";
-import { useState } from "react";
 import { CardProduct } from "./assets/components/products/comp/CardProduct";
-import { Footer } from './assets/components/Footer'
+import { Footer } from "./assets/components/Footer";
+import { useFetchData } from "./assets/components/products/hooks/useFetchData";
 
 export const Products = () => {
-	
-	
-	const [products, setProducts] = useState([]);
+	const { data, setData } = useFetchData("src/data/productos.json");
 
-	const fetchData = async() => {
-		try{
-			const response = await fetch('src/data/productos.json')
-			const data = await response.json()
-			setProducts(data)
-		}catch(error){
-			console.error(error)
-		}
-	};
-
-	console.log(products)
-
-	useEffect(() => {
-		fetchData()
-	},[]);
-	
 	return (
 		<>
 			<CustomNav />
-			<div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2  min-[1070px]:grid-cols-3 min-[1400px]:grid-cols-4">
-				{products.map(product => (
-						<CardProduct key={product.id} imagen={product.image} desc={product.name} precio={product.price} />
+			<div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2  min-[1070px]:grid-cols-3 min-[1400px]:grid-cols-4 mb-20">
+				{data.map((product) => (
+					<a key={product.id + 100}>
+						<CardProduct
+							key={product.id}
+							imagen={product.image}
+							desc={product.name}
+							precio={product.price}
+						/>
+					</a>
 				))}
 			</div>
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
-			<br />
 			<Footer />
 		</>
-	);s
+	);
 };
