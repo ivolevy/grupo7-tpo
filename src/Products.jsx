@@ -2,6 +2,7 @@ import { CustomNav } from "./assets/components/Nav";
 import { useEffect } from "react";
 import { useState } from "react";
 import { CardProduct } from "./assets/components/products/comp/CardProduct";
+import { Footer } from './assets/components/Footer'
 
 export const Products = () => {
 	
@@ -32,6 +33,15 @@ export const Products = () => {
 						<CardProduct key={product.id} imagen={product.image} desc={product.name} precio={product.price} />
 				))}
 			</div>
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<Footer />
 		</>
 	);s
 };

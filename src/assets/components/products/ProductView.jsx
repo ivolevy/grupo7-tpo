@@ -1,10 +1,30 @@
 import mouse from '../../img/logitech-g502.png';
 import '../../css/Product.css'
-import { Link } from "react-router-dom";
 import { CardProduct } from '../products/comp/CardProduct';
 import { Footer } from '../Footer'
+import { useEffect } from "react";
+import { useState } from "react";
 
 export const ProductView = () => {
+
+  const [products, setProducts] = useState([]);
+
+	const fetchData = async() => {
+		try{
+			const response = await fetch('src/data/productos.json')
+			const data = await response.json()
+			setProducts(data)
+		}catch(error){
+			console.error(error)
+		}
+	};
+
+	console.log(products)
+
+	useEffect(() => {
+		fetchData()
+	},[]);
+
   return (
     <>
     <div className="mx-auto flex flex-col h-[55vh]">
@@ -30,37 +50,17 @@ export const ProductView = () => {
     <div className='mx-auto mt-[8em] mb-[8em] text-white uppercase flex justify-center flex-col  align-middle text-center'>
       <h2 className='text-2xl'>related products</h2>
       <div className="mx-auto max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex justify-center">
-				<Link to="/product">
-					<CardProduct
-						imagen="https://placehold.co/600x400/png"
-						desc="Producto random"
-						precio="$1500"
-					/>
-				</Link>
-				<Link to="/product">
-					<CardProduct
-						imagen="https://placehold.co/600x400/png"
-						desc="Producto 2"
-						precio="$2000"
-					/>
-				</Link>
-        <Link to="/product">
-					<CardProduct
-						imagen="https://placehold.co/600x400/png"
-						desc="Producto 2"
-						precio="$2000"
-					/>
-				</Link>
-        <Link to="/product">
-					<CardProduct
-						imagen="https://placehold.co/600x400/png"
-						desc="Producto 2"
-						precio="$2000"
-					/>
-				</Link>
-			</div>
+      {products.slice(0, 4).map(product => (
+      <CardProduct key={product.id} imagen={product.image} desc={product.name} precio={product.price} />
+      ))}
+      </div>
     </div>
     <Footer />
     </>
   );
 };
+
+
+	
+	
+	
