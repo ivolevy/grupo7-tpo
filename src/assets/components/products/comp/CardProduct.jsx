@@ -13,7 +13,7 @@ export const CardProduct = ({ imagen, desc, precio }) => {
 
 					<div className="flex items-center justify-between space-y-1 mt-4">
 						<p className="text-lg text-blue-500 pr-2">{precio}</p>
-						<div className="flex items-center space-x-1.5 rounded-lg bg-blue-500  p-2 mt-0 text-white duration-100 hover:bg-blue-600">
+						<div className="flex items-center space-x-1.5 bg-blue-500  p-2 mt-0 text-white duration-100 hover:bg-blue-600">
 							<CiShoppingCart />
 							<button className="text-sm">Add to cart</button>
 						</div>
