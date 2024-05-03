@@ -1,11 +1,13 @@
 import {TitleCont} from './comp/TitleCont'
+import { Slider } from './comp/Slider'
 
 export const Members = () => {
   return (
     <>
         <section className="titleContainer">
-            <TitleCont title="member" subtitle="We provide more than high-tech products!"/>
+            <TitleCont title="members" subtitle="We proudly introduce our partners"/>
         </section>
+		<Slider />
     </>
   )
 }
