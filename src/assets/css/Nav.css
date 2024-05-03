@@ -70,7 +70,7 @@
 .line{
     width: 2px;
     height: 30px;
-    background-color: gray;
+    background-color: #393939;
 }
   
 .cartItem{
@@ -85,5 +85,8 @@
     }
     .line{
         display: none;
+    }
+    .collapseNav{
+        background-color: #393939;
     }
 }

@@ -255,13 +255,28 @@
   font-size: 0.8em;
 }
 
-@media (width < 768px) {
+@media (max-width: 768px) {
   .whyBlock {
     width: calc(100%);
     border-radius: 1em;
     margin-bottom: 2em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center; 
+  }
+  .whyImg {
+    margin-top: -1em;
+    margin-bottom: 1em;
+  }
+  .whyImgContainer {
+    width: 50%;
+    height: auto;
+  }
+  .whyTextContainer {
+    width: 100%;
+    text-align: center;
+    padding: 0;
+    padding: 1em;
   }
 }
 

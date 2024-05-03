@@ -39,7 +39,7 @@ export const CustomNav = () => {
 				<Navbar.Toggle aria-controls="responsive-navbar-nav" className="bg-[#393939]"/>
 				<Navbar.Collapse
 					id="responsive-navbar-nav"
-					className="flex justify-end"
+					className="flex justify-end collapseNav"
 				>
 					<Nav>
 						<Nav.Link

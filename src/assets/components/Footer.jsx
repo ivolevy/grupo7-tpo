@@ -8,8 +8,8 @@ export const Footer = () => {
   return (
     <>
     <footer className="w-full text-gray-700 bg-[#393939] body-font rounded-[1em] mb-[4em]">
-        <div className="container flex flex-col flex-wrap px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
-            <div className="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
+        <div className="container flex flex-col flex-wrap items-center justify-center px-5 py-24 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
+            <div className="flex-shrink-0 w-full md:w-64 mx-auto text-center md:mx-0 md:text-left">
                 <a className="flex items-center justify-center font-medium text-gray-900 title-font md:justify-start">
                 <div className="flex justify-center items-center">
                     <img src={logo} alt="" className="w-[40%]" />
@@ -32,7 +32,7 @@ export const Footer = () => {
                     </span>
                 </div>
             </div>
-            <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:pl-20 md:mt-0 md:text-left">
+            <div className="flex flex-wrap flex-grow mt-10 -mb-10 text-center md:text-left">
                 <div className="w-full px-4 lg:w-1/4 md:w-1/2">
                     <h2 className="mb-3 text-sm font-medium tracking-widest text-blue-bizio uppercase title-font">Products</h2>
                     <nav className="mb-10 list-none">
