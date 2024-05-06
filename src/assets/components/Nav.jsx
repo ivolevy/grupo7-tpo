@@ -47,7 +47,7 @@ export const CustomNav = () => {
 							to="/"
 							className="navItem"
 							activeClassName="active"
-							exact
+							exact={true}
 						>
 							Home
 						</Nav.Link>

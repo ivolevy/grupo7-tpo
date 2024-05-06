@@ -5,24 +5,25 @@ import { useFetchData } from "./assets/components/products/hooks/useFetchData";
 import { Link } from "react-router-dom";
 
 export const Products = () => {
-	const { data, setData } = useFetchData("src/data/productos.json");
+    const { data, setData } = useFetchData("src/data/productos.json");
 
-	return (
-		<>
-			<CustomNav />
-			<div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2  min-[1070px]:grid-cols-3 min-[1400px]:grid-cols-4 mb-20">
-				{data.map((product) => (
-					<Link key={product.id + 100} to="/product">
-						<CardProduct
-							key={product.id}
-							imagen={product.image}
-							desc={product.name}
-							precio={product.price}
-						/>
-					</Link>
-				))}
-			</div>
-			<Footer />
-		</>
-	);
+    return (
+        <>
+            <CustomNav />
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2  min-[1070px]:grid-cols-3 min-[1400px]:grid-cols-4 mb-20">
+                {data.map((product) => (
+                    <Link key={product.id} to={`/product/${product.id}`}>
+                        <CardProduct
+                            key={product.id}
+                            id={product.id}
+                            image={product.image}
+                            desc={product.name}
+                            precio={product.price}
+                        />
+                    </Link>
+                ))}
+            </div>
+            <Footer />
+        </>
+    );
 };
