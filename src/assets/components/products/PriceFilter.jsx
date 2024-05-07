@@ -1,9 +1,12 @@
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
+
 const PriceFilter = ({ onMinPriceClick, onMaxPriceClick }) => {
   return (
-    <div>
-      <button onClick={onMinPriceClick} className="productViewButton bg-blue-bizio">Precio mínimo</button>
-      <button onClick={onMaxPriceClick} className="productViewButton bg-blue-bizio">Precio máximo</button>
-    </div>
+    <DropdownButton id="dropdown-basic-button" title="Ordenar:">
+      <Dropdown.Item onClick={onMinPriceClick}>Precio mínimo</Dropdown.Item>
+      <Dropdown.Item onClick={onMaxPriceClick}>Precio máximo</Dropdown.Item>
+    </DropdownButton>
   );
 };
 
