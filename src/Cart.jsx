@@ -6,13 +6,21 @@ import {
 	decreaseCart,
 	addtoCart,
 	clearCart,
+	getTotals,
 } from "./redux/reducers/cartSlice";
+import { useEffect } from "react";
 
 export const Cart = () => {
 	const cart = useSelector((state) => state.cart);
 	const items = cart.cartItems;
 
+	console.log(cart);
+
 	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getTotals());
+	}, [cart, dispatch]);
 
 	const handleRemoveFromCart = (item) => {
 		dispatch(removeFromCart(item));
@@ -67,10 +75,20 @@ export const Cart = () => {
 					{/* Sub total */}
 					<div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
 						<div className="flex justify-between">
-							<p className="text-lg font-bold">Total</p>
+							<div>
+								<p className="text-lg font-bold">Items:</p>
+								<p className="text-lg font-bold py-1">Total:</p>
+							</div>
+
 							<div className="">
-								<p className="mb-1 text-lg font-bold">$134.98 USD</p>
-								<p className="text-sm text-gray-700">including VAT</p>
+								<p className="flex mb-1 text-lg font-bold justify-center">
+									{cart.cartTotalQuantity}
+								</p>
+
+								<p className="mb-1 text-lg font-bold">
+									{Math.round(cart.cartTotalAmount)} $USD
+								</p>
+								<p className="text-sm text-gray-700">including IVA</p>
 							</div>
 						</div>
 						<hr className="my-4" />
