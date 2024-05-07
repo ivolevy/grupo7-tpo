@@ -86,7 +86,7 @@ export const Cart = () => {
 								</p>
 
 								<p className="mb-1 text-lg font-bold">
-									{Math.round(cart.cartTotalAmount)} $USD
+									{parseFloat(cart.cartTotalAmount).toFixed(2)} $USD
 								</p>
 								<p className="text-sm text-gray-700">including IVA</p>
 							</div>
