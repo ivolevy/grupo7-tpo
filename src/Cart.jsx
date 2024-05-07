@@ -1,25 +1,34 @@
 import { CustomNav } from "./assets/components/Nav";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./assets/components/cart/CartProduct";
-import { useEffect, useState } from "react";
+import {
+	removeFromCart,
+	decreaseCart,
+	addtoCart,
+	clearCart,
+} from "./redux/reducers/cartSlice";
 
 export const Cart = () => {
 	const cart = useSelector((state) => state.cart);
 	const items = cart.cartItems;
 
-	const [carritoVacio, setcarritoVacio] = useState(true);
+	const dispatch = useDispatch();
 
-	// useEffect(
-	// 	(items) => {
-	// 		console.log(items);
-	// 		if (items == undefined) {
-	// 			setcarritoVacio(true);
-	// 		} else {
-	// 			setcarritoVacio(false);
-	// 		}
-	// 	},
-	// 	[cart]
-	// );
+	const handleRemoveFromCart = (item) => {
+		dispatch(removeFromCart(item));
+	};
+
+	const handleProductDecrease = (item) => {
+		dispatch(decreaseCart(item));
+	};
+
+	const handleProductIncrease = (item) => {
+		dispatch(addtoCart(item));
+	};
+
+	const handleClearCart = () => {
+		dispatch(clearCart());
+	};
 
 	return (
 		<>
@@ -31,7 +40,7 @@ export const Cart = () => {
 				<div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
 					<div className="rounded-lg md:w-2/3">
 						{items == 0 ? (
-							<h1 className="text-white text-4xl justify-center align-middle">
+							<h1 className="flex text-white text-4xl justify-center align-middle py-28">
 								El carrito esta vacio
 							</h1>
 						) : (
@@ -42,21 +51,21 @@ export const Cart = () => {
 									src={item.image}
 									quantity={item.cartQuantity}
 									key={item.id}
+									funcionEliminar={() => {
+										handleRemoveFromCart(item);
+									}}
+									funcionDecrementar={() => {
+										handleProductDecrease(item);
+									}}
+									funcionIncrementar={() => {
+										handleProductIncrease(item);
+									}}
 								/>
 							))
 						)}
 					</div>
 					{/* Sub total */}
 					<div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-						<div className="mb-2 flex justify-between">
-							<p className="text-gray-700">Subtotal</p>
-							<p className="text-gray-700">$129.99</p>
-						</div>
-						<div className="flex justify-between">
-							<p className="text-gray-700">Shipping</p>
-							<p className="text-gray-700">$4.99</p>
-						</div>
-						<hr className="my-4" />
 						<div className="flex justify-between">
 							<p className="text-lg font-bold">Total</p>
 							<div className="">
@@ -64,8 +73,16 @@ export const Cart = () => {
 								<p className="text-sm text-gray-700">including VAT</p>
 							</div>
 						</div>
+						<hr className="my-4" />
+
 						<button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
 							Check out
+						</button>
+						<button
+							className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+							onClick={handleClearCart}
+						>
+							Clear cart
 						</button>
 					</div>
 				</div>
