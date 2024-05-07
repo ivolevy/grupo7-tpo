@@ -36,7 +36,7 @@ export const Product = ({ products }) => {
 			<div className="mx-auto flex flex-col h-[55vh]">
 				{product ? (
 					<div className="flex-1 grid grid-cols-12 gap-4 p-1">
-						<div className="col-span-12 rounded-lg bg-gray-element sm:col-span-8 flex items-center justify-center">
+						<div className="col-span-12 rounded-lg bg-gray-element sm:col-span-8 flex items-center justify-center ">
 							<img
 								src={product.image}
 								className="productImg"
