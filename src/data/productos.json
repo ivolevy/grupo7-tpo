@@ -1,123 +1,122 @@
 [
-    {
-      "id": 1,
-      "name": "Teclado mecánico RGB",
-      "description": "Teclado mecánico con retroiluminación RGB personalizable.",
-      "brand": "logitech",
-      "price": 89.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": true,
-      "discountAmount": 10
-    },
-    {
-      "id": 2,
-      "name": "Mouse gamer G203",
-      "description": "Mouse ergonómico diseñado para gaming, con cable trenzado.",
-      "brand": "logitech",
-      "price": 49.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 3,
-      "name": "Auriculares gaming inalámbricos",
-      "description": "Auriculares inalámbricos con sonido envolvente y micrófono retráctil.",
-      "brand": "logitech",
-      "price": 129.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": true,
-      "discountAmount": 20
-    },
-    {
-      "id": 4,
-      "name": "Mousepad extendido",
-      "description": "Mousepad grande y extendido para mayor precisión y comodidad.",
-      "brand": "logitech",
-      "price": 19.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 5,
-      "name": "Silla gaming ergonómica",
-      "description": "Silla gaming ergonómica con soporte lumbar y reposabrazos ajustables.",
-      "brand": "logitech",
-      "price": 249.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": true,
-      "discountAmount": 30
-    },
-    {
-      "id": 6,
-      "name": "Monitor curvo Full HD",
-      "description": "Monitor curvo de alta definición para una experiencia inmersiva en gaming.",
-      "brand": "logitech",
-      "price": 299.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 7,
-      "name": "Teclado y mouse inalámbricos",
-      "description": "Combo de teclado y mouse inalámbricos con conectividad Bluetooth.",
-      "brand": "logitech",
-      "price": 79.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 8,
-      "name": "Cámara web Full HD",
-      "description": "Cámara web de alta definición para streaming y videoconferencias.",
-      "brand": "logitech",
-      "price": 69.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 9,
-      "name": "Micrófono de condensador",
-      "description": "Micrófono de condensador para grabación de voz y streaming.",
-      "brand": "logitech",
-      "price": 59.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    },
-    {
-      "id": 10,
-      "name": "Alfombrilla térmica RGB",
-      "description": "Alfombrilla térmica con iluminación RGB y superficie de tela suave.",
-      "brand": "logitech",
-      "price": 39.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": true,
-      "discountAmount": 5
-    },
-    {
-      "id": 11,
-      "name": "Volante y pedales para simulador",
-      "description": "Volante y pedales para simulador de carreras compatible con PC y consolas.",
-      "brand": "logitech",
-      "price": 199.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": true,
-      "discountAmount": 15
-    },
-    {
-      "id": 12,
-      "name": "Tarjeta gráfica gaming",
-      "description": "Tarjeta gráfica de alta gama para rendimiento óptimo en juegos AAA.",
-      "brand": "logitech",
-      "price": 499.99,
-      "image": "src/assets/img/logo.png",
-      "discounted": false,
-      "discountAmount": 0
-    }
-  ]
-  
+	{
+		"id": 1,
+		"name": "Teclado mecánico RGB",
+		"description": "Teclado mecánico con retroiluminación RGB personalizable.",
+		"brand": "logitech",
+		"price": 89.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": true,
+		"discountAmount": 10
+	},
+	{
+		"id": 2,
+		"name": "Mouse gamer G203",
+		"description": "Mouse ergonómico diseñado para gaming, con cable trenzado.",
+		"brand": "logitech",
+		"price": 49.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 3,
+		"name": "Auriculares gaming inalámbricos",
+		"description": "Auriculares inalámbricos con sonido envolvente y micrófono retráctil.",
+		"brand": "logitech",
+		"price": 129.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": true,
+		"discountAmount": 20
+	},
+	{
+		"id": 4,
+		"name": "Mousepad extendido",
+		"description": "Mousepad grande y extendido para mayor precisión y comodidad.",
+		"brand": "logitech",
+		"price": 19.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 5,
+		"name": "Silla gaming ergonómica",
+		"description": "Silla gaming ergonómica con soporte lumbar y reposabrazos ajustables.",
+		"brand": "logitech",
+		"price": 249.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": true,
+		"discountAmount": 30
+	},
+	{
+		"id": 6,
+		"name": "Monitor curvo Full HD",
+		"description": "Monitor curvo de alta definición para una experiencia inmersiva en gaming.",
+		"brand": "logitech",
+		"price": 299.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 7,
+		"name": "Teclado y mouse inalámbricos",
+		"description": "Combo de teclado y mouse inalámbricos con conectividad Bluetooth.",
+		"brand": "logitech",
+		"price": 79.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 8,
+		"name": "Cámara web Full HD",
+		"description": "Cámara web de alta definición para streaming y videoconferencias.",
+		"brand": "logitech",
+		"price": 69.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 9,
+		"name": "Micrófono de condensador",
+		"description": "Micrófono de condensador para grabación de voz y streaming.",
+		"brand": "logitech",
+		"price": 59.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	},
+	{
+		"id": 10,
+		"name": "Alfombrilla térmica RGB",
+		"description": "Alfombrilla térmica con iluminación RGB y superficie de tela suave.",
+		"brand": "logitech",
+		"price": 39.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": true,
+		"discountAmount": 5
+	},
+	{
+		"id": 11,
+		"name": "Volante y pedales para simulador",
+		"description": "Volante y pedales para simulador de carreras compatible con PC y consolas.",
+		"brand": "logitech",
+		"price": 199.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": true,
+		"discountAmount": 15
+	},
+	{
+		"id": 12,
+		"name": "Tarjeta gráfica gaming",
+		"description": "Tarjeta gráfica de alta gama para rendimiento óptimo en juegos AAA.",
+		"brand": "logitech",
+		"price": 499.99,
+		"image": "https://placehold.co/600x400",
+		"discounted": false,
+		"discountAmount": 0
+	}
+]
