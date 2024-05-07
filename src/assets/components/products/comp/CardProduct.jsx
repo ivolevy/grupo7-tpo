@@ -14,18 +14,17 @@ export const CardProduct = ({ image, desc, precio, id }) => {
 					<div className="mt-1 p-2 h-1/3">
 						<h2 className="text-white h-9">{desc}</h2>
 
-						<div className="flex items-center justify-between space-y-1 mt-4">
-							<p className="text-lg text-blue-500 pr-2">${precio}</p>
-							<div className="flex items-center space-x-1.5 bg-blue-500 p-2 mt-0 text-white duration-100 hover:bg-blue-600">
-								<CiShoppingCart />
-								<button className="text-sm">Add to cart</button>
-							</div>
-						</div>
-					</div>
-				</article>
-			</Link>
-		</div>
-	);
+            <div className="flex items-center justify-between space-y-1 mt-4">
+              <p className="text-lg text-blue-500 pr-2">${precio}</p>
+              <div className="rounded-lg flex items-center space-x-1.5 bg-blue-500 p-2 mt-0 text-white duration-100 hover:bg-blue-600">
+                <button className="text-sm"><CiShoppingCart className="text-xl"/></button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </Link>
+    </div>
+  );
 };
 
 CardProduct.propTypes = {
