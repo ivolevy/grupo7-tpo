@@ -1,5 +1,5 @@
 const CategoryFilter = ({ setCategoryFilter }) => {
-  const categories = ["Todos", "teclados", "mouse", "auriculares", "accesorios", "sillas", "monitores", "perifericos", "graficas"];
+  const categories = ["todos", "teclados", "mouse", "auriculares", "accesorios", "sillas", "monitores", "perifericos", "graficas"];
 
   const handleCategoryChange = (event) => {
     const selectedCategory = event.target.value;
