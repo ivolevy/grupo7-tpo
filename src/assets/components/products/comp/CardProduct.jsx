@@ -1,37 +1,46 @@
 import PropTypes from "prop-types";
-import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 
-export const CardProduct = ({ image, desc, precio, id }) => {
-	return (
-		<div>
-			<Link to={`/product/${id}`} className="card-link">
-				<article className="rounded-xl bg-gray-element p-3 shadow-lg hover:border-blue-bizio duration-300 border-2 border-transparent">
-					<div className="relative flex items-end overflow-hidden rounded-xl">
-						<img src={image} alt="Product Photo" className=" w-52 h-48" />
-					</div>
+export const CardProduct = ({ image, desc, precio, id, discounted, discountAmount }) => {
+    const finalPrice = discounted ? precio - discountAmount : precio;
+    const formattedPrice = finalPrice.toFixed(2);
+    return (
+        <div>
+            <Link to={`/product/${id}`} className="card-link">
+                <article className="rounded-xl bg-gray-element p-3 shadow-lg hover:border-blue-bizio duration-300 border-2 border-transparent">
+                    <div className="relative flex items-end overflow-hidden rounded-xl">
+                        <img src={image} alt="Product Photo" className=" w-52 h-48" />
+                    </div>
 
-					<div className="mt-1 p-2 h-1/3">
-						<h2 className="text-white h-9">{desc}</h2>
+                    <div className="mt-1 p-2 h-1/3">
+                        <h2 className="text-white h-9">{desc}</h2>
 
-						<div className="flex items-center justify-between space-y-1 mt-4">
-							<p className="text-lg text-blue-500 pr-2">${precio}</p>
-							<div className="rounded-lg flex items-center space-x-1.5 bg-blue-500 p-2 mt-0 text-white duration-100 hover:bg-blue-600">
-								<button className="text-sm">
-									<CiShoppingCart className="text-xl" />
-								</button>
-							</div>
-						</div>
-					</div>
-				</article>
-			</Link>
-		</div>
-	);
+                        <div className="flex items-center justify-between space-y-1 mt-4">
+                            <div>
+                                {discounted ? (
+                                    <>
+                                        <p className="text-lg text-blue-500 pr-6">
+                                            <span className="text-sm line-through text-blue-bizio">${precio.toFixed(2)}</span>{" "}
+                                            <span className="text-lg text-red-500 ml-2">${formattedPrice}</span>
+                                        </p>
+                                    </>
+                                ) : (
+                                    <p className="text-lg text-blue-bizio pr-2">${precio.toFixed(2)}</p>
+                                )}
+                            </div>                     
+                        </div>
+                    </div>
+                </article>
+            </Link>
+        </div>
+    );
 };
 
 CardProduct.propTypes = {
-	image: PropTypes.string.isRequired,
-	desc: PropTypes.string.isRequired,
-	precio: PropTypes.number.isRequired,
-	id: PropTypes.number.isRequired,
+    image: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+    precio: PropTypes.number.isRequired,
+    id: PropTypes.number.isRequired,
+    discounted: PropTypes.bool.isRequired,
+    discountAmount: PropTypes.number.isRequired,
 };

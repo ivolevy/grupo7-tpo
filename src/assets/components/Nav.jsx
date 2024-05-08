@@ -86,11 +86,11 @@ export const CustomNav = () => {
                 />
                 {cartQuantity > 0 && (
                   <span
-                    className="badge bg-gray-element text-blue-bizio"
+                    className="badge text-white font-light"
                     style={{
                       position: "absolute",
                       top: "-10px",
-                      right: "-10px",
+                      right: "0px",
                       borderRadius: "20%",
                       padding: "5px",
                       fontSize: "0.7rem",
