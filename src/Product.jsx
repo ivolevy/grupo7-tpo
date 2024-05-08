@@ -66,7 +66,6 @@ export const Product = ({ products }) => {
 								>
 									Add to cart
 								</button>
-								<button className="productViewButton bg-black">Buy</button>
 							</div>
 						</div>
 					</div>
