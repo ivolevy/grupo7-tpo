@@ -39,10 +39,8 @@ export const Products = () => {
 			<CustomNav />
 			<div className="flex flex-col sm:flex-row">
 				{" "}
-				{/* Cambiado a flex-col y sm:flex-row */}
 				<aside className=" w-full sm:w-1/6 bg-blue-bizio p-4 rounded-md mt-6 mb-24">
 					{" "}
-					{/* Cambiado a w-full y sm:w-1/6 */}
 					<CategoryFilter setCategoryFilter={setCategoryFilter} />
 					<hr className="my-4" />
 					<PriceFilter
