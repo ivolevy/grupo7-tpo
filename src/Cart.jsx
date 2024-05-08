@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { CustomNav } from "./assets/components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./assets/components/cart/CartProduct";
@@ -8,13 +7,18 @@ import {
   addtoCart,
   clearCart,
   getTotals,
+  checkOut,
+  applyDiscount
 } from "./redux/reducers/cartSlice";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useEffect, useState } from "react";
 
 export const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const items = cart.cartItems;
+  const [formData, setFormData] = useState({
+		discountCode: "",
+		discountPercentage: 0,
+	})
 
   const dispatch = useDispatch();
 
@@ -39,15 +43,20 @@ export const Cart = () => {
   };
 
   const handleCheckout = () => {
-    toast.success("Compra hecha", {
-      position: "top-center",
-      autoClose: 3000, // Cerrar automáticamente después de 3 segundos
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
+    dispatch(checkOut())
   };
+
+  const handleChange = (e) => {
+		const { name, value } = e.target;
+		setFormData(prevState => ({
+			...prevState,
+			[name]: value
+		}));
+	};
+
+	const handleApplyDiscount = () => {
+		dispatch(applyDiscount(formData.discountCode))
+	}
 
   return (
     <>
@@ -104,6 +113,24 @@ export const Cart = () => {
             </div>
             <hr className="my-4" />
 
+            <div className="flex">
+				      <input
+					      type="text"
+					      name="discountCode"
+					      placeholder="Discount code"
+					      className="mt-1 flex-grow rounded-md bg-blue-500 py-1.5 pl-2 pr-10 mr-2 text-blue-50 placeholder-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
+					      value={formData.discountCode}
+					      onChange={handleChange}
+				      />
+				      <button
+					      type="submit"
+					      className="bg-blue-500 px-3 py-1.5 text-white rounded-md hover:bg-blue-600"
+					      onClick={() => handleApplyDiscount(formData.discountCode)}
+				      >
+					      Add
+				      </button>
+				    </div>
+
             <button
               className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
               onClick={handleCheckout}
@@ -119,7 +146,6 @@ export const Cart = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 };
