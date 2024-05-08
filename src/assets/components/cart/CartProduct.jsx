@@ -64,7 +64,7 @@ export const CartItem = ({
 							<div className="justify-center">
 								<p className="text-sm align-middle">Precio: {price}</p>
 								<p className="text-sm align-middle">
-									total: {Math.round(price * quantity)}
+									total: {parseFloat(price * quantity).toFixed(2)}
 								</p>
 							</div>
 

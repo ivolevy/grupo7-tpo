@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,88 +9,101 @@ import "../css/Nav.css";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { NavDropdown } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 export const CustomNav = () => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const cartQuantity = useSelector((state) => state.cart.cartQuantity);
 
-	const handleLogout = () => {
-		// Lógica para cerrar sesión
-		setIsLoggedIn(false);
-	};
-
-	return (
-		<Navbar
-			collapseOnSelect
-			expand="lg"
-			id="nav"
-			sticky="top"
-			className="w-full bg-gray-bizio py-0 mb-4"
-		>
-			<Container>
-				<Navbar.Brand as={Link} to="/">
-					<img
-						src={logo}
-						width="110"
-						height="auto"
-						className="d-inline-block align-top logoNav"
-						alt="React Bootstrap logo"
-					/>
-				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" className="bg-[#393939]"/>
-				<Navbar.Collapse
-					id="responsive-navbar-nav"
-					className="flex justify-end collapseNav"
-				>
-					<Nav>
-						<Nav.Link
-							as={NavLink}
-							to="/"
-							className="navItem"
-							activeClassName="active"
-							exact
-						>
-							Home
-						</Nav.Link>
-						<Nav.Link
-							as={NavLink}
-							to="/products"
-							className="navItem"
-							activeClassName="active"
-						>
-							Products
-						</Nav.Link>
-						<Nav.Link
-							as={NavLink}
-							to="/contact"
-							className="navItem"
-							activeClassName="active"
-						>
-							Contact
-						</Nav.Link>
-						<NavDropdown
-							title={<FaRegUser className="text-blue-bizio" />}
-							id="basic-nav-dropdown"
-							className="navItem"
-							activeClassName="active"
-						>
-							<NavDropdown.Item href="/login">Log in</NavDropdown.Item>
-							<NavDropdown.Item href="/register">Register</NavDropdown.Item>
-						</NavDropdown>
-						<div className="line"></div>
-						<Nav.Link
-							as={NavLink}
-							to="/cart"
-							className="iconCart"
-							activeClassName="active"
-						>
-							<CiShoppingCart
-								id="cart"
-								className=" text-blue-bizio mt-[-4px] text-2xl w-12"
-							/>
-						</Nav.Link>
-					</Nav>		
-				</Navbar.Collapse>
-			</Container>
-		</Navbar>
-	);
+  return (
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      id="nav"
+      sticky="top"
+      className="w-full bg-gray-bizio py-0 mb-4"
+    >
+      <Container>
+        <Navbar.Brand as={Link} to="/">
+          <img
+            src={logo}
+            width="110"
+            height="auto"
+            className="d-inline-block align-top logoNav"
+            alt="React Bootstrap logo"
+          />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" className="bg-[#393939]" />
+        <Navbar.Collapse
+          id="responsive-navbar-nav"
+          className="flex justify-end collapseNav"
+        >
+          <Nav>
+            <Nav.Link
+              as={NavLink}
+              to="/"
+              className="navItem"
+              activeClassName="active"
+              exact
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/products"
+              className="navItem"
+              activeClassName="active"
+            >
+              Products
+            </Nav.Link>
+            <Nav.Link
+              as={NavLink}
+              to="/contact"
+              className="navItem"
+              activeClassName="active"
+            >
+              Contact
+            </Nav.Link>
+            <NavDropdown
+              title={<FaRegUser className="text-blue-bizio" />}
+              id="basic-nav-dropdown"
+              className="navItem"
+              activeClassName="active"
+            >
+              <NavDropdown.Item href="/login">Log in</NavDropdown.Item>
+              <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+            </NavDropdown>
+            <div className="line"></div>
+            <Nav.Link
+              as={NavLink}
+              to="/cart"
+              className="iconCart"
+              activeClassName="active"
+            >
+              <div style={{ position: "relative" }}>
+                <CiShoppingCart
+                  id="cart"
+                  className=" text-blue-bizio mt-[-4px] text-2xl w-12"
+                />
+                {cartQuantity > 0 && (
+                  <span
+                    className="badge text-white font-light"
+                    style={{
+                      position: "absolute",
+                      top: "-10px",
+                      right: "0px",
+                      borderRadius: "20%",
+                      padding: "5px",
+                      fontSize: "0.7rem",
+                    }}
+                  >
+                    {cartQuantity}
+                  </span>
+                )}
+              </div>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 };

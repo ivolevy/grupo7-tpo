@@ -56,6 +56,8 @@ export const Products = () => {
 							image={product.image}
 							desc={product.name}
 							precio={product.price}
+							discounted={product.discounted}
+							discountAmount={product.discountAmount}
 						/>
 					))}
 				</div>
