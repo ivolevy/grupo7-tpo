@@ -11,6 +11,7 @@ import {
 	applyDiscount,
 } from "./redux/reducers/cartSlice";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";  // Importa useNavigate
 
 export const Cart = () => {
 	const cart = useSelector((state) => state.cart);
@@ -21,6 +22,7 @@ export const Cart = () => {
 	});
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();  // Declara useNavigate
 
 	useEffect(() => {
 		dispatch(getTotals());
@@ -44,6 +46,7 @@ export const Cart = () => {
 
 	const handleCheckout = () => {
 		dispatch(checkOut());
+		navigate('/cart/payment');  // Redirige a /cart/payment
 	};
 
 	const handleChange = (e) => {
