@@ -13,6 +13,8 @@ import productsData from "./data/productos.json";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { ToastContainer } from "react-toastify";
+import { Payment } from "./Payment";
+
 
 createRoot(document.getElementById("root")).render(
 	<Provider store={store}>
@@ -32,6 +34,7 @@ createRoot(document.getElementById("root")).render(
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/products" element={<Products />} />
+				<Route path="/cart/payment" element={<Payment />} />
 				<Route
 					path="/product/:id"
 					element={<Product products={productsData} />}
