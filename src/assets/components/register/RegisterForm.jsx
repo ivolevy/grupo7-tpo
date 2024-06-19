@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { register } from "../../../api";
 
 export function RegisterForm() {
     const [error, setError] = useState(false);
@@ -13,6 +14,26 @@ export function RegisterForm() {
         password: ""
     });
 
+	useEffect(() => {
+		if (registrationSuccess) {
+			toast.success("Registro exitoso", {
+				position: "top-center",
+				autoClose: 1500,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+			});
+			setTimeout(() => {
+				window.location.assign("/login");
+			}, 2000);
+
+			setRegistrationSuccess(false);
+		}
+	}, [registrationSuccess]);
+
     function handleChange(e) {
         const { name, value } = e.target;
 
@@ -22,56 +43,62 @@ export function RegisterForm() {
         }));
     }
 
-	function submitForm(e) {
-		e.preventDefault();
-	
+	const validateForm = () => {
 		const { name, lastName, email, user, password } = formData;
 		let formValid = true;
-	
-		if (!name || name.trim() === "") {
+		let pattern = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
+		if (!name.trim()) {
 			setError(true);
 			formValid = false;
 		}
-	
-		if (!lastName || lastName.trim() === "") {
+
+		if (!lastName.trim()) {
 			setError(true);
 			formValid = false;
 		}
-	
-		if (!email || email.trim() === "") {
+
+		if (!email.trim()) {
 			setError(true);
 			formValid = false;
-		} else if (!email.includes("@")) {
+		} else if (!pattern.test(email)) {
 			setError(false);
 			setErrorInvalidEmail(true);
 			formValid = false;
 		}
-	
-		if (!user || user.trim() === "") {
-			setError(true);
-			formValid = false;
-		}
-	
-		if (!password || password.trim() === "") {
-			setError(true);
-			formValid = false;
-		}
-	
-		if (formValid) {
-			setError(false);
-			setErrorInvalidEmail(false);
-			setRegistrationSuccess(true);
-			sessionStorage.setItem("name", name);
-			sessionStorage.setItem("lastName", lastName);
-			sessionStorage.setItem("email", email);
-			sessionStorage.setItem("user", user);
-			sessionStorage.setItem("password", password);
 
-			setTimeout(() => {
-				window.location.assign("/login");
-			}, 2000);
+		if (!user.trim()) {
+			setError(true);
+			formValid = false;
 		}
-	}
+
+		if (!password.trim()) {
+			setError(true);
+			formValid = false;
+		}
+
+		return formValid;
+
+	};
+
+	const submitForm = async (e) => {
+		e.preventDefault();
+	  
+		if (validateForm()) {
+		  setError(false);
+		  setErrorInvalidEmail(false);
+	  
+		  try {
+			const { name, lastName, email, user, password } = formData;
+			const data = await register(name, lastName, email, user, password);
+			sessionStorage.setItem("token", data.token);
+			setRegistrationSuccess(true);
+
+		  } catch (error) {
+			setError(error.message);
+		  }
+		}
+	  };
 
 	return (
 		<section className="flex flex-col items-center justify-center">
@@ -99,7 +126,8 @@ export function RegisterForm() {
 					placeholder="Email"
 					className="w-64 h-12 px-4 mb-4 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
 					value={formData.email}
-					onChange={handleChange}				/>
+					onChange={handleChange}				
+				/>
 				<input
 					type="text"
 					name="user"
@@ -130,21 +158,7 @@ export function RegisterForm() {
 					Formato de Email incorrecto
 				</p>
 				)}
-			</form>
-			{registrationSuccess && (
-                toast.success("Registro exitoso", {
-					position: "top-center",
-					autoClose: 1500,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "colored",
-				})
-            )}
-		
-			
+			</form>			
 		</section>
 	);
 }
