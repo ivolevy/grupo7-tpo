@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export function RegisterForm() {
     const [error, setError] = useState(false);
@@ -68,7 +69,7 @@ export function RegisterForm() {
 
 			setTimeout(() => {
 				window.location.assign("/login");
-			}, 1500);
+			}, 2000);
 		}
 	}
 
@@ -131,9 +132,16 @@ export function RegisterForm() {
 				)}
 			</form>
 			{registrationSuccess && (
-                <div className="bg-green-200 text-green-700 p-4 rounded-md mt-4">
-                    Registro exitoso
-                </div>
+                toast.success("Registro exitoso", {
+					position: "top-center",
+					autoClose: 1500,
+					hideProgressBar: false,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "colored",
+				})
             )}
 		
 			

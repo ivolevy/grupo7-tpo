@@ -5,6 +5,8 @@ const initialState = {
   cartItems: [],
   cartQuantity: 0,
   cartTotal: 0,
+  discountApplied: false,
+	discountPercentage: 0,
 };
 
 const cartSlice = createSlice({
@@ -73,7 +75,61 @@ const cartSlice = createSlice({
       state.cartItems = [];
       state.cartQuantity = 0;
     },
-    getTotals(state, action) {
+    checkOut(state) {
+			if (state.cartQuantity === 0) {
+				return;
+			}
+			state.cartItems = [];
+			toast.success("Compra hecha", {
+        position: "top-center",
+        autoClose: 3000, // Cerrar automáticamente después de 3 segundos
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+		},
+    applyDiscount(state, action) {
+			if (state.discountApplied) {
+				if (action.payload === "BIZIO15") {
+					return;
+				}
+			}
+			if (!action.payload){
+				return;
+			}
+			if (state.cartItems.length <= 0) {
+				return;
+			}
+			if (action.payload === "BIZIO15") {
+			  state.discountApplied = true;
+			  state.discountPercentage = 0.15;
+			  toast.info("Discount applied: 15%", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+			  });
+			} else {
+			  state.discountApplied = false;
+			  state.discountPercentage = 0;
+			  toast.error("Invalid discount code", {
+				position: "top-center",
+				autoClose: 5000,
+				hideProgressBar: false,
+				closeOnClick: true,
+				pauseOnHover: true,
+				draggable: true,
+				progress: undefined,
+				theme: "colored",
+			  });
+			}
+		},
+    getTotals(state) {
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { price, cartQuantity } = cartItem;
@@ -90,13 +146,17 @@ const cartSlice = createSlice({
         }
       );
 
+      if(state.discountApplied) {
+				total -= total * state.discountPercentage;
+			}
+
       state.cartTotal = total;
       state.cartQuantity = quantity;
     },
   },
 });
 
-export const { addtoCart, removeFromCart, decreaseCart, clearCart, getTotals } =
+export const { addtoCart, removeFromCart, decreaseCart, clearCart, getTotals, checkOut, applyDiscount  } =
   cartSlice.actions;
 
 export default cartSlice.reducer;

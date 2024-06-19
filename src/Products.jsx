@@ -57,7 +57,7 @@ export const Products = () => {
 							desc={product.name}
 							precio={product.price}
 							discounted={product.discounted}
-							discountAmount={product.discountAmount}
+							discountAmount={(product.price * product.discountAmount) / 100}
 						/>
 					))}
 				</div>

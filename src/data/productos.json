@@ -130,5 +130,16 @@
 		"image": "https://i.postimg.cc/vBDQRbZk/pngegg-11.png",
 		"discounted": false,
 		"discountAmount": 0
+	},
+	{
+		"id": 13,
+		"name": "Mouse gamer G502 Hero Wireless",
+		"description": "Mouse de alta gama diseñado para juegos, con tecnología inalámbrica avanzada, sensor HERO de alta precisión, diseño ergonómico y botones programables para una experiencia de juego personalizable y sin cables.",
+		"brand": "logitech",
+		"category": "mouse",
+		"price": 99.99,
+		"image": "https://i.postimg.cc/rwRGZrX4/logitech-g502.png",
+		"discounted": false,
+		"discountAmount": 0
 	}
 ]
