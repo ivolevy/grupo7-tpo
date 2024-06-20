@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { CustomNav } from "./assets/components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./assets/components/cart/CartProduct";
@@ -8,9 +9,9 @@ import {
   clearCart,
   getTotals,
   checkOut,
-  applyDiscount,
+  applyDiscount, // Asegurarse de importar applyDiscount aquí
 } from "./redux/reducers/cartSlice";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
@@ -46,7 +47,7 @@ export const Cart = () => {
 
   const handleCheckout = () => {
     dispatch(checkOut());
-    navigate('/cart/payment');
+    navigate("/cart/payment");
   };
 
   const handleChange = (e) => {
@@ -58,7 +59,7 @@ export const Cart = () => {
   };
 
   const handleApplyDiscount = () => {
-    dispatch(applyDiscount(formData.discountCode));
+    dispatch(applyDiscount(formData.discountCode)); // Llamar a applyDiscount con el código ingresado
   };
 
   return (
@@ -133,13 +134,13 @@ export const Cart = () => {
             </div>
 
             <button
-              className="mt-4 w-full h-12 rounded-md bg-blue-500 py-2  text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="mt-4 w-full h-12 rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
               onClick={handleCheckout}
             >
               Check out
             </button>
             <button
-              className="mt-4 w-full h-12 rounded-md bg-red-500 py-2  text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
+              className="mt-4 w-full h-12 rounded-md bg-red-500 py-2 text-white hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-400"
               onClick={handleClearCart}
             >
               Clear cart
