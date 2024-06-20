@@ -17,7 +17,7 @@ export const CartItem = ({
 				/>
 				<div className="sm:ml-4 sm:flex sm:w-full sm:justify-between">
 					<div className="mt-5 sm:mt-0">
-						<h2 className="text-lg font-bold text-gray-900">{name}</h2>
+						<h2 className="text-lg text-gray-900">{name}</h2>
 					</div>
 					<div className="mt-4 flex justify-between  sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
 						<div className="flex justify-center">

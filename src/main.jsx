@@ -38,8 +38,8 @@ createRoot(document.getElementById("root")).render(
 				<Route path="/" element={<Home />} />
 				<Route path="/products" element={<Products />} />
 				<Route path="/cart/payment" element={<Payment />} />
-				<Route path="/perfil-usuario" element={<UserView />} />
-				<Route path="/perfil-administrador" element={<AdminView />} />
+				<Route path="/profile-user" element={<UserView />} />
+				<Route path="/profile-admin" element={<AdminView />} />
 
 				<Route
 					path="/product/:id"
