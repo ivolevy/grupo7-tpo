@@ -8,6 +8,7 @@
 		"price": 89.99,
 		"image": "https://i.postimg.cc/mkgR3408/pngegg.png",
 		"discounted": true,
+		"stock": 0,
 		"discountAmount": 10
 	},
 	{
@@ -19,6 +20,7 @@
 		"price": 49.99,
 		"image": "https://i.postimg.cc/C1BM9Sv5/pngegg-2.png",
 		"discounted": false,
+		"stock": 500,
 		"discountAmount": 0
 	},
 	{
@@ -30,6 +32,7 @@
 		"price": 129.99,
 		"image": "https://i.postimg.cc/Hkkfx3Q1/pngwing-com.png",
 		"discounted": true,
+		"stock": 100,
 		"discountAmount": 20
 	},
 	{
@@ -41,6 +44,7 @@
 		"price": 19.99,
 		"image": "https://i.postimg.cc/cL599SPr/pngegg-9.png",
 		"discounted": false,
+		"stock": 5,
 		"discountAmount": 0
 	},
 	{
@@ -52,6 +56,7 @@
 		"price": 249.99,
 		"image": "https://i.postimg.cc/JzQZTcg0/pngegg-4.png",
 		"discounted": true,
+		"stock": 296,
 		"discountAmount": 30
 	},
 	{
@@ -63,6 +68,7 @@
 		"price": 299.99,
 		"image": "https://i.postimg.cc/htGtBLvf/pngegg-5.png",
 		"discounted": false,
+		"stock": 1000,
 		"discountAmount": 0
 	},
 	{
@@ -74,6 +80,7 @@
 		"price": 79.99,
 		"image": "https://i.postimg.cc/65yPxTwB/pngegg-6.png",
 		"discounted": false,
+		"stock": 5,
 		"discountAmount": 0
 	},
 	{
@@ -85,6 +92,7 @@
 		"price": 69.99,
 		"image": "https://i.postimg.cc/KcVNLfSy/pngegg-7.png",
 		"discounted": false,
+		"stock": 2,
 		"discountAmount": 0
 	},
 	{
@@ -96,6 +104,7 @@
 		"price": 59.99,
 		"image": "https://i.postimg.cc/0y501B7D/pngegg-8.png",
 		"discounted": false,
+		"stock": 9,
 		"discountAmount": 0
 	},
 	{
@@ -107,6 +116,7 @@
 		"price": 39.99,
 		"image": "https://i.postimg.cc/d1sdP7b6/pngegg-3.png",
 		"discounted": true,
+		"stock": 5,
 		"discountAmount": 5
 	},
 	{
@@ -118,6 +128,7 @@
 		"price": 199.99,
 		"image": "https://i.postimg.cc/5N2SZrBv/pngegg-10.png",
 		"discounted": true,
+		"stock": 10,
 		"discountAmount": 15
 	},
 	{
@@ -129,6 +140,7 @@
 		"price": 499.99,
 		"image": "https://i.postimg.cc/vBDQRbZk/pngegg-11.png",
 		"discounted": false,
+		"stock": 5,
 		"discountAmount": 0
 	},
 	{
@@ -140,6 +152,7 @@
 		"price": 99.99,
 		"image": "https://i.postimg.cc/rwRGZrX4/logitech-g502.png",
 		"discounted": false,
+		"stock": 5,
 		"discountAmount": 0
 	}
 ]
