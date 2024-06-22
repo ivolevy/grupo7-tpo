@@ -41,8 +41,7 @@ export const CustomNav = () => {
             <Nav.Link
               as={NavLink}
               to="/"
-              className="navItem"
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? "active" : "")}
               exact
             >
               Home
@@ -50,34 +49,46 @@ export const CustomNav = () => {
             <Nav.Link
               as={NavLink}
               to="/products"
-              className="navItem"
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Products
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/contact"
-              className="navItem"
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               Contact
             </Nav.Link>
             <NavDropdown
               title={<FaRegUser className="text-blue-bizio" />}
               id="basic-nav-dropdown"
-              className="navItem"
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <NavDropdown.Item href="/login">Log in</NavDropdown.Item>
-              <NavDropdown.Item href="/register">Register</NavDropdown.Item>
+              <NavDropdown.Item >
+                <Nav.Link
+                  as={NavLink}
+                  to="/login"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Login
+                </Nav.Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Nav.Link
+                  as={NavLink}
+                  to="/register"
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                >
+                  Register
+                </Nav.Link>
+              </NavDropdown.Item>
             </NavDropdown>
             <div className="line"></div>
             <Nav.Link
               as={NavLink}
               to="/cart"
-              className="iconCart"
-              activeClassName="active"
+              className={({ isActive }) => (isActive ? "active" : "")}
             >
               <div style={{ position: "relative" }}>
                 <CiShoppingCart

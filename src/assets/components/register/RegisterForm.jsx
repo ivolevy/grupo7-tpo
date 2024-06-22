@@ -1,16 +1,18 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { register } from "../../../api";
+import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
+	const navigate = useNavigate();
     const [error, setError] = useState(false);
 	const [errorEmail, setErrorInvalidEmail] = useState(false);
 	const [registrationSuccess, setRegistrationSuccess] = useState(false);
+	const [errorEmailUsado, setErrorEmailUsado] = useState(false);
     const [formData, setFormData] = useState({
         name: "",
         lastName: "",
         email: "",
-        user: "",
         password: ""
     });
 
@@ -27,7 +29,7 @@ export function RegisterForm() {
 				theme: "colored",
 			});
 			setTimeout(() => {
-				window.location.assign("/login");
+				navigate("/login");
 			}, 2000);
 
 			setRegistrationSuccess(false);
@@ -44,7 +46,7 @@ export function RegisterForm() {
     }
 
 	const validateForm = () => {
-		const { name, lastName, email, user, password } = formData;
+		const { name, lastName, email, password } = formData;
 		let formValid = true;
 		let pattern = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
@@ -67,11 +69,6 @@ export function RegisterForm() {
 			formValid = false;
 		}
 
-		if (!user.trim()) {
-			setError(true);
-			formValid = false;
-		}
-
 		if (!password.trim()) {
 			setError(true);
 			formValid = false;
@@ -89,21 +86,26 @@ export function RegisterForm() {
 		  setErrorInvalidEmail(false);
 	  
 		  try {
-			const { name, lastName, email, user, password } = formData;
-			const data = await register(name, lastName, email, user, password);
-			sessionStorage.setItem("token", data.token);
-			setRegistrationSuccess(true);
-
+			const { name, lastName, email, password } = formData;
+			const data = await register(name, lastName, email, password);
+			if (data) {
+				setRegistrationSuccess(true);
+			  } else {
+				throw new Error("Registration failed");
+			  }
 		  } catch (error) {
-			setError(error.message);
+			setErrorEmailUsado(true);
 		  }
 		}
 	  };
 
 	return (
 		<section className="flex flex-col items-center justify-center">
-			<h1 className="text-3xl font-bold mb-4 text-white relative z-10">Register</h1>
-			<form className="flex flex-col items-center justify-center" onSubmit={submitForm}>
+			<h1 className="text-3xl font-bold mb-4 text-white relative z-10">Registrate</h1>
+			<form 
+				className="flex flex-col items-center justify-center" 
+				onSubmit={submitForm}
+			>
 				<input
 					type="text"
 					name="name"
@@ -129,13 +131,6 @@ export function RegisterForm() {
 					onChange={handleChange}				
 				/>
 				<input
-					type="text"
-					name="user"
-					placeholder="Usuario"
-					className="w-64 h-12 px-4 mb-4 rounded-md border border-gray-300 focus:outline-none focus:ring focus:ring-blue-400"
-					value={formData.user}
-					onChange={handleChange}				/>
-				<input
 					type="password"
 					name="password"
 					placeholder="Contraseña"
@@ -156,6 +151,11 @@ export function RegisterForm() {
 				{errorEmail && (
 				<p className="text-red-600 mt-2.5">
 					Formato de Email incorrecto
+				</p>
+				)}
+				{errorEmailUsado && (
+				<p className="text-red-600 mt-2.5">
+					Email ya registrado
 				</p>
 				)}
 			</form>			

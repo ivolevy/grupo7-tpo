@@ -1,26 +1,33 @@
-import { useState } from "react";
+import React,{ useState } from "react";
+import { API_BASE_URL } from "../../config";
 
-export function LoginForm() {
+export function Login() {
 
-    const [user, setUser] = useState('')
+    const [userName, setUser] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState(false)
-    const [error2,setError2] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        let usuario = sessionStorage.getItem('user')
-        let contraseña = sessionStorage.getItem('password')
+        try {
+            const response = await fetch(`${API_BASE_URL}/login`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userName, password })
+            });
 
-        if(user != usuario || password != contraseña){
-            setError(true)
-            return
-        }
+            if (!response.ok) {
+                throw new Error('Usuario o contraseña incorrectos')
+            }
 
-        setError(false)
-        window.location.assign("/")
-        setIsLoggedIn
-    }
+            const data = await response.json()
+            localStorage.setItem('token', data.token)
+        } catch (error) {
+            setError(error.message)
+        }   
+    };
 
 
 
