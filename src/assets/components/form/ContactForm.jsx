@@ -48,7 +48,7 @@ export const ContactForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <h3 className="text-xl mb-4">Formulario de Contacto</h3>
+      <h3 className="text-xl mb-4">Having a problem? Let us help you!</h3>
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto grid grid-cols-2 gap-2">
         <div className="col-span-2">
           <label
@@ -63,8 +63,7 @@ export const ContactForm = ({ onSubmit }) => {
             name="fullName"
             value={formData.fullName}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            style={{ width: '100%', height: '40px' }}
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900"
             required
           />
         </div>
@@ -82,8 +81,7 @@ export const ContactForm = ({ onSubmit }) => {
             name="problem"
             value={formData.problem}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            style={{ width: '100%', height: '40px' }}
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900"
             required
           />
         </div>
@@ -100,9 +98,8 @@ export const ContactForm = ({ onSubmit }) => {
             name="description"
             value={formData.description}
             onChange={handleChange}
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900"
             rows="5"
-            style={{ width: '100%', height: '100px' }}
             required
           ></textarea>
         </div>
@@ -121,8 +118,7 @@ export const ContactForm = ({ onSubmit }) => {
             accept="image/*"
             onChange={handleChange}
             multiple
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-900"
-            style={{ width: '100%', height: '40px' }}
+            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-900 text-gray-900"
           />
           <div className="mt-2 grid grid-cols-3 gap-4">
             {formData.photos.map((photo, index) => (
