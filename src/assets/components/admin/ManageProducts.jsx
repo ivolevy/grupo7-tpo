@@ -2,7 +2,6 @@ export const ManageProducts = () => {
   return (
     <div>
      <h3 className="text-xl mb-4">Gestionar Productos</h3>
-              {/* Lista de productos existentes */}
               <ul>
                 <li>
                   Producto 1 - $100{' '}

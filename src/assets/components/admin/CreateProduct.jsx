@@ -11,7 +11,7 @@ export const CreateProduct = ({ categories, onSubmit }) => {
     discounted: false,
     discountAmount: 0,
     image: null,
-    stock: '', // Nuevo campo para stock
+    stock: '',
   });
 
   const handleChange = (e) => {
@@ -48,16 +48,14 @@ export const CreateProduct = ({ categories, onSubmit }) => {
       discounted: false,
       discountAmount: 0,
       image: null,
-      stock: '', // Limpiar el campo de stock después de enviar
+      stock: '', 
     });
   };
 
   return (
     <div>
       <h3 className="text-xl mb-4">Crear Nuevo Producto</h3>
-      {/* Formulario para crear producto */}
       <form onSubmit={handleSubmit} className="max-w-lg mx-auto grid grid-cols-2 gap-4">
-        {/* ID */}
         <div>
           <label
             htmlFor="productId"
@@ -76,7 +74,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           />
         </div>
 
-        {/* Nombre */}
         <div>
           <label
             htmlFor="productName"
@@ -95,7 +92,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           />
         </div>
 
-        {/* Descripción */}
         <div className="col-span-2">
           <label
             htmlFor="productDescription"
@@ -114,7 +110,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           ></textarea>
         </div>
 
-        {/* Marca */}
         <div>
           <label
             htmlFor="productBrand"
@@ -133,7 +128,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           />
         </div>
 
-        {/* Categoría */}
         <div>
           <label
             htmlFor="productCategory"
@@ -157,7 +151,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           </select>
         </div>
 
-        {/* Precio */}
         <div>
           <label
             htmlFor="productPrice"
@@ -176,7 +169,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           />
         </div>
 
-        {/* Producto en Descuento */}
         <div className="flex items-center">
           <input
             id="productDiscounted"
@@ -194,7 +186,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           </label>
         </div>
 
-        {/* Monto de Descuento (%), solo visible si el producto está en descuento */}
         {productData.discounted && (
           <div className="w-full">
             <label
@@ -215,7 +206,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           </div>
         )}
 
-        {/* Imagen */}
         <div className="col-span-2">
           <label
             htmlFor="productImage"
@@ -242,7 +232,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           )}
         </div>
 
-        {/* Stock */}
         <div>
           <label
             htmlFor="productStock"
@@ -261,7 +250,6 @@ export const CreateProduct = ({ categories, onSubmit }) => {
           />
         </div>
 
-        {/* Botón de Submit */}
         <div className="col-span-2 mt-4">
           <button
             type="submit"

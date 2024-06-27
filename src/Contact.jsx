@@ -1,7 +1,6 @@
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import './assets/css/Contact.css'
 import { CustomNav } from './assets/components/Nav';
+import { ContactForm } from './assets/components/form/ContactForm';
 
 export const Contact = () => {
   return (
@@ -19,24 +18,7 @@ export const Contact = () => {
         </div>
 
         <div className='right'>
-
-            <Form>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter email" />
-
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="number" placeholder="Telefono" />
-                </Form.Group>
-                
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form>
-
-
-
+            <ContactForm />
         </div>
     </section>
     </>
