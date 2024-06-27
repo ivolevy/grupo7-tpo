@@ -42,7 +42,6 @@ export const CustomNav = () => {
               as={NavLink}
               to="/"
               className={({ isActive }) => (isActive ? "active" : "")}
-              exact
             >
               Home
             </Nav.Link>
