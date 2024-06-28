@@ -24,9 +24,9 @@ export function LoginForm() {
 				progress: undefined,
 				theme: "colored",
 			});
-			setTimeout(() => {
-				navigate("/");
-			}, 2000);
+			// setTimeout(() => {
+			// 	navigate("/");
+			// }, 2000);
 
 			setLoginSuccess(false);
 		}
@@ -70,7 +70,7 @@ export function LoginForm() {
 			try {
 				const { email, password } = formData;
 				const data = await login(email, password);
-				localStorage.setItem("token", data.token);
+				localStorage.setItem("token", data.access_token);
 				setLoginSuccess(true);
 			} catch (error) {
 				setError(true);
