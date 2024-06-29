@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { CustomNav } from "./assets/components/Nav";
 import { ManageProducts } from './assets/components/admin/ManageProducts';
 import { CreateProduct } from './assets/components/admin/CreateProduct';
+import { ManageUsers } from './assets/components/admin/ManageUsers';
 
 export const AdminView = () => {
   const [view, setView] = useState('crearProducto');
@@ -28,6 +29,11 @@ export const AdminView = () => {
     "graficas",
   ];
 
+  const roles = [
+    "ROLE_ADMIN",
+    "ROLE_USER",
+  ];
+
   return (
     <>
       <CustomNav />
@@ -52,6 +58,14 @@ export const AdminView = () => {
             >
               Gestionar Productos
             </li>
+            <li
+              className={`p-4 cursor-pointer ${
+                view === 'gestionarUsuarios' ? 'bg-gray-700' : ''
+              }`}
+              onClick={() => handleViewChange('gestionarUsuarios')}
+            >
+              Gestionar Usuarios
+            </li>
           </ul>
         </div>
 
@@ -64,10 +78,15 @@ export const AdminView = () => {
             />
           )}
 
-          {/* Vista para gestionar productos */}
           {view === 'gestionarProductos' && (
             <ManageProducts 
               categories={categories}
+            />
+          )}
+
+          {view === 'gestionarUsuarios' && (
+            <ManageUsers 
+              roles={roles}
             />
           )}
         </div>

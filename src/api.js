@@ -83,6 +83,55 @@ export const getProducts = async () => {
     }
 }
 
+export const getUsers = async () => {
+    const response = await fetch(`${API_BASE_URL}/user`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al obtener los usuarios')
+    }
+
+    try {
+        const usersData = await response.json();
+        return usersData;
+    } catch (error) {
+        throw new Error('Error al parsear los datos de los usuarios');
+    }
+}
+
+export const deleteUser = async (id) => {
+    const response = await fetch(`${API_BASE_URL}/user/delete/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al eliminar el usuario')
+    }
+}
+
+export const changeRole = async (id, role) => {
+    console.log(id, role);
+    const response = await fetch(`${API_BASE_URL}/user/changeRole/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ role })
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al cambiar el rol del usuario')
+    }
+}
+
 export const deleteProduct = async (id) => {
     const response = await fetch(`${API_BASE_URL}/product/delete/${id}`, {
         method: 'DELETE',
