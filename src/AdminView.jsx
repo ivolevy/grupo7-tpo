@@ -5,9 +5,15 @@ import { CreateProduct } from './assets/components/admin/CreateProduct';
 
 export const AdminView = () => {
   const [view, setView] = useState('crearProducto');
+  const [products, setProducts] = useState([]);
 
   const handleViewChange = (viewName) => {
     setView(viewName);
+  };
+
+  const handleCreateProduct = (newProduct) => {
+    setProducts([...products, newProduct]);
+    setView('gestionarProductos'); // Cambia a la vista de gestionar productos después de crear uno nuevo
   };
 
   const categories = [
@@ -21,11 +27,6 @@ export const AdminView = () => {
     "perifericos",
     "graficas",
   ];
-
-  const handleCreateProduct = (productData) => {
-    console.log('Datos:', productData);
-    // Lógica para guardar el producto en la base de datos o realizar otra acción necesaria
-  };
 
   return (
     <>
@@ -65,7 +66,9 @@ export const AdminView = () => {
 
           {/* Vista para gestionar productos */}
           {view === 'gestionarProductos' && (
-            <ManageProducts />
+            <ManageProducts 
+              categories={categories}
+            />
           )}
         </div>
       </div>

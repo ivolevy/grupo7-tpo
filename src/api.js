@@ -6,7 +6,7 @@ export const register = async (name, lastName, email, password) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ firstname: name, lastname: lastName, email, password})
+        body: JSON.stringify({ firstname: name, lastname: lastName, email, password })
     });
 
     if (!response.ok) {
@@ -33,7 +33,7 @@ export const login = async (email, password) => {
     return data;
 }
 
-export const createProduct = async (name, description, brand, category, price, 
+export const createProduct = async (name, description, brand, category, price,
     discounted, discountAmount, image, stock) => {
     const formData = new FormData();
     formData.append('name', name);
@@ -45,6 +45,8 @@ export const createProduct = async (name, description, brand, category, price,
     formData.append('discountPercentage', discountAmount);
     formData.append('image', image);
     formData.append('stock', stock);
+
+    console.log(formData.get('image'));
 
     const response = await fetch(`${API_BASE_URL}/product/create`, {
         method: 'POST',
@@ -60,3 +62,52 @@ export const createProduct = async (name, description, brand, category, price,
 
     return response.json();
 }
+
+export const getProducts = async () => {
+    const response = await fetch(`${API_BASE_URL}/product`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al obtener los productos')
+    }
+
+    try {
+        const productsData = await response.json();
+        return productsData;
+    } catch (error) {
+        throw new Error('Error al parsear los datos de los productos');
+    }
+}
+
+export const deleteProduct = async (id) => {
+    const response = await fetch(`${API_BASE_URL}/product/delete/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al eliminar el producto')
+    }
+}
+
+export const updateProduct = async (formData) => {
+    const response = await fetch(`${API_BASE_URL}/product/update/${formData.get('productId')}`, {
+        method: 'PUT',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+        body: formData
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al actualizar el producto');
+    }
+
+    return response.json();
+};

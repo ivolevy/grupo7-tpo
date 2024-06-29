@@ -24,9 +24,9 @@ export function LoginForm() {
 				progress: undefined,
 				theme: "colored",
 			});
-			// setTimeout(() => {
-			// 	navigate("/");
-			// }, 2000);
+			setTimeout(() => {
+				navigate("/");
+			}, 2000);
 
 			setLoginSuccess(false);
 		}
