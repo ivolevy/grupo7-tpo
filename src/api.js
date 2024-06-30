@@ -46,8 +46,6 @@ export const createProduct = async (name, description, brand, category, price,
     formData.append('image', image);
     formData.append('stock', stock);
 
-    console.log(formData.get('image'));
-
     const response = await fetch(`${API_BASE_URL}/product/create`, {
         method: 'POST',
         headers: {
@@ -156,6 +154,74 @@ export const updateProduct = async (formData) => {
 
     if (!response.ok) {
         throw new Error('Error al actualizar el producto');
+    }
+
+    return response.json();
+};
+
+export const getDiscounts = async () => {
+    const response = await fetch(`${API_BASE_URL}/discount`, {
+        method: 'GET',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al obtener los descuentos')
+    }
+
+    try {
+        const discountsData = await response.json();
+        return discountsData;
+    } catch (error) {
+        throw new Error('Error al parsear los datos de los descuentos');
+    }
+}
+
+export const createDiscount = async (code, percentage, startDate, endDate, active) => {
+
+    const response = await fetch(`${API_BASE_URL}/discount/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify({ code, percentage, startDate, endDate, active })
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al crear el descuento')
+    }
+
+    return response.json();
+}
+
+export const deleteDiscount = async (id) => {
+    const response = await fetch(`${API_BASE_URL}/discount/delete/${id}`, {
+        method: 'DELETE',
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al eliminar el descuento')
+    }
+}
+
+export const updateDiscount = async (discount) => {
+    const response = await fetch(`${API_BASE_URL}/discount/update/${discount.discountId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+        },
+        body: JSON.stringify(discount)
+    });
+
+    if (!response.ok) {
+        throw new Error('Error al actualizar el descuento');
     }
 
     return response.json();

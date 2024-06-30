@@ -3,6 +3,8 @@ import { CustomNav } from "./assets/components/Nav";
 import { ManageProducts } from './assets/components/admin/ManageProducts';
 import { CreateProduct } from './assets/components/admin/CreateProduct';
 import { ManageUsers } from './assets/components/admin/ManageUsers';
+import { ManageDiscounts } from './assets/components/admin/ManageDiscounts';
+import { CreateDiscount } from './assets/components/admin/CreateDiscount';
 
 export const AdminView = () => {
   const [view, setView] = useState('crearProducto');
@@ -10,11 +12,6 @@ export const AdminView = () => {
 
   const handleViewChange = (viewName) => {
     setView(viewName);
-  };
-
-  const handleCreateProduct = (newProduct) => {
-    setProducts([...products, newProduct]);
-    setView('gestionarProductos'); // Cambia a la vista de gestionar productos después de crear uno nuevo
   };
 
   const categories = [
@@ -43,28 +40,39 @@ export const AdminView = () => {
           <h2 className="text-2xl p-4">Admin Dashboard</h2>
           <ul>
             <li
-              className={`p-4 cursor-pointer ${
-                view === 'crearProducto' ? 'bg-gray-700' : ''
-              }`}
+              className={`p-4 cursor-pointer ${view === 'crearProducto' ? 'bg-gray-700' : ''
+                }`}
               onClick={() => handleViewChange('crearProducto')}
             >
               Crear Producto
             </li>
             <li
-              className={`p-4 cursor-pointer ${
-                view === 'gestionarProductos' ? 'bg-gray-700' : ''
-              }`}
+              className={`p-4 cursor-pointer ${view === 'crearDescuento' ? 'bg-gray-700' : ''
+                }`}
+              onClick={() => handleViewChange('crearDescuento')}
+            >
+              Crear Descuento
+            </li>
+            <li
+              className={`p-4 cursor-pointer ${view === 'gestionarProductos' ? 'bg-gray-700' : ''
+                }`}
               onClick={() => handleViewChange('gestionarProductos')}
             >
               Gestionar Productos
             </li>
             <li
-              className={`p-4 cursor-pointer ${
-                view === 'gestionarUsuarios' ? 'bg-gray-700' : ''
-              }`}
+              className={`p-4 cursor-pointer ${view === 'gestionarUsuarios' ? 'bg-gray-700' : ''
+                }`}
               onClick={() => handleViewChange('gestionarUsuarios')}
             >
               Gestionar Usuarios
+            </li>
+            <li
+              className={`p-4 cursor-pointer ${view === 'gestionarDescuentos' ? 'bg-gray-700' : ''
+                }`}
+              onClick={() => handleViewChange('gestionarDescuentos')}
+            >
+              Gestionar Descuentos
             </li>
           </ul>
         </div>
@@ -74,20 +82,27 @@ export const AdminView = () => {
           {view === 'crearProducto' && (
             <CreateProduct
               categories={categories}
-              onSubmit={handleCreateProduct}
             />
           )}
 
+          {view === 'crearDescuento' && (
+            <CreateDiscount />
+          )}
+
           {view === 'gestionarProductos' && (
-            <ManageProducts 
+            <ManageProducts
               categories={categories}
             />
           )}
 
           {view === 'gestionarUsuarios' && (
-            <ManageUsers 
+            <ManageUsers
               roles={roles}
             />
+          )}
+
+          {view === 'gestionarDescuentos' && (
+            <ManageDiscounts />
           )}
         </div>
       </div>

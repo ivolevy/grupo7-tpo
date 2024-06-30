@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createProduct } from '../../../api';
+import { toast } from 'react-toastify';
 
-export const CreateProduct = ({ categories, onSubmit }) => {
+export const CreateProduct = ({ categories }) => {
+  const [createSuccess, setCreateSuccess] = useState(false);
+  const [error, setError] = useState(null);
   const [productData, setProductData] = useState({
     name: '',
     description: '',
@@ -13,6 +16,38 @@ export const CreateProduct = ({ categories, onSubmit }) => {
     image: null,
     stock: '',
   });
+
+  useEffect(() => {
+    if (createSuccess) {
+      toast.success('Producto creado con éxito', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+      });
+      setCreateSuccess(false);
+    }
+  }, [createSuccess]);
+
+  useEffect(() => {
+    if (error) {
+      toast.error('El nombre del producto ya ha sido utilizado', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light'
+      });
+      setError(null);
+    }
+  }, [error]);
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -43,8 +78,9 @@ export const CreateProduct = ({ categories, onSubmit }) => {
         discounted, discountAmount, image, stock } = productData;
       const data = await createProduct(name, description, brand, category, price,
         discounted, discountAmount, image, stock);
-      onSubmit(data);
+      setCreateSuccess(true);
     } catch (error) {
+      setError(true);
       console.error(error);
     }
   };

@@ -99,7 +99,7 @@ export const EditProductModal = ({ isOpen, onClose, onSave, product, categories 
                 <form onSubmit={handleSave} className="grid grid-cols-2 gap-4">
                     <div>
                         <label htmlFor="productName" className="block text-sm font-medium text-gray-700">Nombre</label>
-                        <input type="text" id="productName" name="name" value={productData.name} onChange={handleChange} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required />
+                        <input type="text" id="productName" name="name" readOnly value={productData.name} onChange={handleChange} className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm" required />
                     </div>
                     <div>
                         <label htmlFor="productStock" className="block text-sm font-medium text-gray-700">Stock</label>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getProducts, deleteProduct, updateProduct } from "../../../api";
-import { DeleteAdvice } from './DeleteAdvice';
-import { EditProductModal } from './EditProductModal';
+import { DeleteAdvice } from './Modals/DeleteAdvice';
+import { EditProductModal } from './Modals/EditProductModal';
 
 
 export const ManageProducts = ({categories = []}) => {
@@ -104,7 +104,6 @@ export const ManageProducts = ({categories = []}) => {
                   <h5 className="text-lg font-bold">{product.name}</h5>
                   <p>precio: ${product.price}</p>
                   <p>Stock: {product.stock}</p>
-                  <p>Id: {product.productId}</p>
                 </div>
               </div>
               <div className="flex justify-end mt-4">

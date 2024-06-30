@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getUsers, deleteUser, changeRole } from '../../../api'
-import { DeleteAdvice } from './DeleteAdvice'
-import { EditUserModal } from './EditUserModal'
+import { DeleteAdvice } from './Modals/DeleteAdvice'
+import { EditUserModal } from './Modals/EditUserModal'
 
 export const ManageUsers = ({roles = []}) => {
     const [users, setUsers] = useState([]);
@@ -83,7 +83,7 @@ export const ManageUsers = ({roles = []}) => {
 
     return (
         <div>
-            <h2 className="text-2xl p-4">Gestionar Usuarios</h2>
+            <h2 className="text-xl mb-4">Gestionar Usuarios</h2>
             {error ? (
                 <div className="text-red-500">Error: {error.message}</div>
             ) : loading ? (
@@ -95,7 +95,6 @@ export const ManageUsers = ({roles = []}) => {
                             <div>
                                 <h5 className="text-lg font-bold">{user.name}</h5>
                                 <p>Email: {user.email}</p>
-                                <p>Id: {user.userId}</p>
                                 <p>{user.role}</p>
                             </div>
                             <div className="flex justify-end mt-4">
