@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { CustomNav } from "./assets/components/Nav";
 import { useDispatch, useSelector } from "react-redux";
 import { CartItem } from "./assets/components/cart/CartProduct";
@@ -11,7 +11,6 @@ import {
   checkOut,
   applyDiscount, // Asegurarse de importar applyDiscount aquí
 } from "./redux/reducers/cartSlice";
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Cart = () => {
@@ -21,6 +20,7 @@ export const Cart = () => {
     discountCode: "",
     discountPercentage: 0,
   });
+  const [notification, setNotification] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -46,8 +46,12 @@ export const Cart = () => {
   };
 
   const handleCheckout = () => {
-    dispatch(checkOut());
-    navigate("/cart/payment");
+    if (items.length === 0) {
+      setNotification("El carrito está vacío");
+    } else {
+      dispatch(checkOut());
+      navigate("/cart/payment");
+    }
   };
 
   const handleChange = (e) => {
@@ -132,6 +136,10 @@ export const Cart = () => {
                 Add
               </button>
             </div>
+
+            {notification && (
+              <div className="text-red-500 mb-4">{notification}</div>
+            )}
 
             <button
               className="mt-4 w-full h-12 rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
