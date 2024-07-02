@@ -63,9 +63,7 @@ export function LoginForm() {
         const data = await login(email, password);
         localStorage.setItem("token", data.access_token);
 
-      
-        // Redirigir al usuario al inicio
-        navigate("/");
+        window.location.assign("/")
       } catch (error) {
         setError(true);
         console.error(error);

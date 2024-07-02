@@ -6,12 +6,21 @@ export const AuthProvider = ({ children }) => {
   const [authenticate, setauthenticate] = useState(false);
   const [role, setrole] = useState(null);
 
+  const decodeJWT = (token) => {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(atob(base64).split('').map((c) => {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+  };
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
       setauthenticate(true);
-      const userRole = localStorage.getItem("role");
-      setrole(userRole);
+      const userRole = decodeJWT(token);
+      setrole(userRole.role);
     }
   }, []);
 

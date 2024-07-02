@@ -13,11 +13,13 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { store } from "./redux/store";
-import './assets/css/Main.css';
 import { AuthContext } from "./authContext";
 import { AdminNav } from './assets/components/navs/AdminNav';
 import { UserNav } from './assets/components/navs/UserNav';
 import { GuestNav } from './assets/components/navs/GuestNav';
+import { PrivateRoute } from './PrivateRoute';
+import './assets/css/Main.css';
+import './assets/css/Nav.css';
 
 
 export const App = () => {
@@ -56,8 +58,8 @@ export const App = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/cart/payment" element={<Payment />} />
-                        <Route path="/profile-user" element={<UserView />} />
-                        <Route path="/profile-admin" element={<AdminView />} />
+                        <Route path="/profile-user" element={<PrivateRoute element={<UserView />} roles={['USER']} />} />
+                        <Route path="/profile-admin" element={<PrivateRoute element={<AdminView />} roles={['ADMIN']} />} />
                         <Route path="/cart" element={<Cart />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
