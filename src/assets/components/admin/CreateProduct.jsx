@@ -96,7 +96,7 @@ export const CreateProduct = ({ categories }) => {
 				image,
 				stock,
 			} = productData;
-			const data = await createProduct(
+			await createProduct(
 				name,
 				description,
 				brand,
