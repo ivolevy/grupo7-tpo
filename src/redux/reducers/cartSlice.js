@@ -50,16 +50,16 @@ const cartSlice = createSlice({
 		},
 		removeFromCart(state, action) {
 			const removedItem = state.cartItems.find(
-				(item) => item.id === action.payload.id
+				(item) => item.productId === action.payload.productId
 			);
 			state.cartQuantity -= removedItem.cartQuantity;
 			state.cartItems = state.cartItems.filter(
-				(cartItem) => cartItem.id !== action.payload.id
+				(cartItem) => cartItem.productId !== action.payload.productId
 			);
 		},
 		decreaseCart(state, action) {
 			const itemIndex = state.cartItems.findIndex(
-				(cartItem) => cartItem.id === action.payload.id
+				(cartItem) => cartItem.productId === action.payload.productId
 			);
 
 			if (state.cartItems[itemIndex].cartQuantity > 1) {
@@ -68,7 +68,7 @@ const cartSlice = createSlice({
 			} else if (state.cartItems[itemIndex].cartQuantity === 1) {
 				state.cartQuantity -= 1;
 				state.cartItems = state.cartItems.filter(
-					(cartItem) => cartItem.id !== action.payload.id
+					(cartItem) => cartItem.productId !== action.payload.productId
 				);
 			}
 		},
