@@ -1,4 +1,5 @@
 import g502 from "../../img/logitech-g502.png";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const handleClickDetails = () => {
@@ -15,12 +16,9 @@ export const Header = () => {
         </p>
         <p className="headerPrice text-blue-bizio mt-2">usd 99.99</p>
         <div className="headerButtons mt-2">
-          <button 
-          className="button button1 bg-blue-bizio font-sans"
-          onClick={handleClickDetails}
-          >
-            See details
-          </button>
+        <Link to="/products" className="button button1 bg-blue-bizio font-sans">
+      More products
+    </Link>
         </div>
       </div>
       <div className="rightHeader">
