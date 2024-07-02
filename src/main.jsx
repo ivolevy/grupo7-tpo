@@ -1,23 +1,21 @@
 import React from "react";
-import "react-toastify/dist/ReactToastify.css";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from "./Home";
-import { Products } from "./Products";
-import { Product } from "./Product";
-import { Login } from "./Login";
-import { Register } from "./Register";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AdminView } from "./AdminView";
 import { Cart } from "./Cart";
 import { Contact } from "./Contact";
-import productsData from "./data/productos.json";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import { ToastContainer } from "react-toastify";
+import { Home } from "./Home";
+import { Login } from "./Login";
 import { Payment } from "./Payment";
+import { Product } from "./Product";
+import { Products } from "./Products";
+import { Register } from "./Register";
 import { UserView } from "./UserView";
-import { AdminView } from "./AdminView";
-
-
+import { getProducts } from "./api";
+import { store } from "./redux/store";
 
 createRoot(document.getElementById("root")).render(
 	<Provider store={store}>
@@ -40,10 +38,9 @@ createRoot(document.getElementById("root")).render(
 				<Route path="/cart/payment" element={<Payment />} />
 				<Route path="/profile-user" element={<UserView />} />
 				<Route path="/profile-admin" element={<AdminView />} />
-
 				<Route
 					path="/product/:id"
-					element={<Product products={productsData} />}
+					element={<Product products={[getProducts()]} />}
 				/>{" "}
 				{/* Pasa la lista de productos como prop */}
 				<Route path="/cart" element={<Cart />} />
