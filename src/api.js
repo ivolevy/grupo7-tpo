@@ -140,6 +140,26 @@ export const getUsers = async () => {
 	}
 };
 
+export const getSingleUser = async () => {
+	const response = await fetch(`${API_BASE_URL}/user/currentUser`, {
+		method: "GET",
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error("Error al obtener el usuario");
+	}
+
+	try {
+		const usersData = await response.json();
+		return usersData;
+	} catch (error) {
+		throw new Error("Error al parsear los datos del usuario");
+	}
+};
+
 export const deleteUser = async (id) => {
 	const response = await fetch(`${API_BASE_URL}/user/delete/${id}`, {
 		method: "DELETE",
