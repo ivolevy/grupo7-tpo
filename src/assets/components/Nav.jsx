@@ -42,7 +42,6 @@ export const CustomNav = () => {
               as={NavLink}
               to="/"
               className="navItem"
-              activeClassName="active"
             >
               Home
             </Nav.Link>
@@ -50,7 +49,6 @@ export const CustomNav = () => {
               as={NavLink}
               to="/products"
               className="navItem"
-              activeClassName="active"
             >
               Products
             </Nav.Link>
@@ -58,7 +56,6 @@ export const CustomNav = () => {
               as={NavLink}
               to="/contact"
               className="navItem"
-              activeClassName="active"
             >
               Contact
             </Nav.Link>
@@ -72,7 +69,6 @@ export const CustomNav = () => {
                   as={NavLink}
                   to="/login"
                   className="navItem"
-                  activeClassName="active"
                 >
                   Login
                 </Nav.Link>
@@ -82,7 +78,6 @@ export const CustomNav = () => {
                   as={NavLink}
                   to="/register"
                   className="navItem"
-                  activeClassName="active"
                 >
                   Register
                 </Nav.Link>
@@ -93,7 +88,6 @@ export const CustomNav = () => {
               as={NavLink}
               to="/cart"
               className="navItem"
-              activeClassName="active"
             >
               <div style={{ position: "relative" }}>
                 <CiShoppingCart

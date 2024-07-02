@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getProducts } from "./api";
 import { Footer } from "./assets/components/Footer";
 import { CustomNav } from "./assets/components/Nav";
@@ -11,17 +11,25 @@ export const Products = () => {
 	const [categoryFilter, setCategoryFilter] = useState(null);
 	const [error, setError] = useState(null);
 	const [products, setProducts] = useState([]);
+	const [loading, setLoading] = useState(true);
 
-	const fetchProducts = async () => {
-		try {
-			const data = await getProducts();
-			const sortedData = data.sort((a, b) => a.productId - b.productId);
-			setProducts(sortedData);
-		} catch (error) {
-			setError(error);
-			console.log(error);
-		}
-	};
+	useEffect(() => {
+		const fetchProducts = async () => {
+			try {
+				const data = await getProducts();
+				const sortedData = data.sort((a, b) => a.productId - b.productId);
+				setProducts(sortedData);
+			} catch (error) {
+				setError(error);
+				console.log(error);
+			} finally {
+				setLoading(false);
+			}
+		};
+
+		fetchProducts();
+	}, []);
+	
 
 	const handleMinPriceClick = () => {
 		setSortType("asc");
@@ -40,9 +48,7 @@ export const Products = () => {
 			return 0;
 		}
 	};
-
-	fetchProducts();
-
+	
 	const filteredData = categoryFilter
 		? products.filter((product) => product.category === categoryFilter)
 		: products;
