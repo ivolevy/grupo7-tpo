@@ -73,7 +73,7 @@ export const CreateDiscount = () => {
 
         try {
             const { code, percentage, startDate, endDate, active } = discount;
-            const data = await createDiscount(code, percentage, startDate, endDate, active);
+            await createDiscount(code, percentage, startDate, endDate, active);
             setCreateSuccess(true);
         } catch (error) {
             setError(true);
