@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom"; // Importa useNavigate
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -15,10 +15,9 @@ import { useSelector } from "react-redux";
 export const CustomNav = () => {
   const { user, logout, loading } = useAuth();
   const cartQuantity = useSelector((state) => state.cart.cartQuantity);
-  const navigate = useNavigate(); // Obtiene la función navigate
+  const navigate = useNavigate(); 
 
   useEffect(() => {
-    // Aquí podrías realizar cualquier acción adicional al iniciar sesión, si es necesario
   }, [user]);
 
   if (loading) {
@@ -26,8 +25,8 @@ export const CustomNav = () => {
   }
 
   const handleLogout = () => {
-    logout(); // Llama a la función logout del contexto de autenticación
-    navigate('/'); // Redirige al usuario al home
+    logout(); 
+    navigate('/'); 
   };
 
   return (
