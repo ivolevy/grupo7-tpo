@@ -346,3 +346,35 @@ export const getUserOrders = async () => {
 
 	return response.json();
 };
+
+export const createOrder = async (orderItems) => {
+	try {
+		const response = await fetch(`${API_BASE_URL}/order`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			},
+			body: JSON.stringify({ orderItems }),
+		});
+
+		if (!response.ok) {
+			// Intentamos obtener el texto de error
+			const errorText = await response.text();
+			// Intentamos parsear como JSON, si falla, usamos el texto como está
+			try {
+				const errorJson = JSON.parse(errorText);
+				throw new Error(errorJson.message || "Error al crear la orden");
+			} catch (jsonError) {
+				throw new Error(errorText || "Error al crear la orden");
+			}
+		}
+
+		// Si la respuesta es OK, intentamos parsear como JSON
+		const responseData = await response.json();
+		return responseData;
+	} catch (error) {
+		console.error("Error en createOrder:", error);
+		throw error;
+	}
+};
