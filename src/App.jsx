@@ -16,11 +16,12 @@ import { UserView } from "./UserView";
 import { AdminNav } from "./assets/components/navs/AdminNav";
 import { GuestNav } from "./assets/components/navs/GuestNav";
 import { UserNav } from "./assets/components/navs/UserNav";
-import "./assets/css/Main.css";
+
 import "./assets/css/Nav.css";
+
+import "./assets/css/Main.css";
 import { AuthContext } from "./authContext";
 import { store } from "./redux/store";
-
 export const App = () => {
 	const { isAuthenticated, role } = useContext(AuthContext);
 

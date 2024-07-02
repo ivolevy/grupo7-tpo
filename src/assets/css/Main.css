@@ -9,15 +9,14 @@
 }
 
 body {
-	background-color: #1c1c1c;
-	padding: 0 8vw 0 8vw;
-	font-family: "brown-regular";
+	background-color: #1c1c1c !important;
+	padding: 0 8vw 0 8vw !important;
+	font-family: "brown-regular" !important;
 }
 
 .background-color {
 	background-color: #1c1c1c;
 }
-
 
 @keyframes scroll {
 	0% {

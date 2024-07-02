@@ -9,6 +9,8 @@ import { FaRegUser } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../../authContext";
+import "../../css/Main.css";
+import "../../css/Nav.css";
 import logo from "../../img/logo.png";
 
 export const AdminNav = () => {
