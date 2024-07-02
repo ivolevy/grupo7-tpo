@@ -46,17 +46,18 @@ export const CreateProduct = ({ categories }) => {
 				theme: "light",
 			});
 		} else {
-			toast.error("verifique los datos del producto", {
-				position: "top-center",
-				autoClose: 2000,
-				hideProgressBar: true,
-				closeOnClick: true,
-				pauseOnHover: true,
-				draggable: true,
-				progress: undefined,
-				theme: "light",
-			});
-			setError(null);
+			if (error) {
+				toast.error("verifique los datos del producto", {
+					position: "top-center",
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+					theme: "light",
+				});
+			}
 		}
 	}, [error]);
 

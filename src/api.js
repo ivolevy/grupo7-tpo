@@ -261,6 +261,10 @@ export const getDiscounts = async () => {
 		},
 	});
 
+	if (response.status === 423) {
+		throw new Error("Acceso no autorizado");
+	}
+
 	if (!response.ok) {
 		throw new Error("Error al obtener los descuentos");
 	}
