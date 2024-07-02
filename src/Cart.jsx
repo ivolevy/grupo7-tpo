@@ -68,7 +68,6 @@ export const Cart = () => {
 
 	return (
 		<>
-			<CustomNav />
 			<div className="h-auto pt-20">
 				<h1 className="d-none">Cart Items</h1>
 				<div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
