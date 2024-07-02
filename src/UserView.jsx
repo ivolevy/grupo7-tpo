@@ -5,6 +5,7 @@ import { CustomNav } from "./assets/components/Nav";
 export const UserView = () => {
 	const [view, setView] = useState("perfil");
 	const [user, setUser] = useState(null);
+	const [loading, setLoading] = useState(true);
 
 	const handleViewChange = (viewName) => {
 		setView(viewName);
@@ -15,6 +16,7 @@ export const UserView = () => {
 			try {
 				const userData = await getSingleUser();
 				setUser(userData);
+				setLoading(false);
 			} catch (error) {
 				console.log(error);
 			}
@@ -25,6 +27,7 @@ export const UserView = () => {
 
 	console.log(user);
 
+	if (loading) return <div>...Cargando</div>;
 	return (
 		<>
 			<CustomNav />
