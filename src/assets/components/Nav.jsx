@@ -41,34 +41,38 @@ export const CustomNav = () => {
             <Nav.Link
               as={NavLink}
               to="/"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="navItem"
+              activeClassName="active"
             >
               Home
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/products"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="navItem"
+              activeClassName="active"
             >
               Products
             </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/contact"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="navItem"
+              activeClassName="active"
             >
               Contact
             </Nav.Link>
             <NavDropdown
               title={<FaRegUser className="text-blue-bizio" />}
               id="basic-nav-dropdown"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="navItem"
             >
-              <NavDropdown.Item >
+              <NavDropdown.Item>
                 <Nav.Link
                   as={NavLink}
                   to="/login"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  className="navItem"
+                  activeClassName="active"
                 >
                   Login
                 </Nav.Link>
@@ -77,7 +81,8 @@ export const CustomNav = () => {
                 <Nav.Link
                   as={NavLink}
                   to="/register"
-                  className={({ isActive }) => (isActive ? "active" : "")}
+                  className="navItem"
+                  activeClassName="active"
                 >
                   Register
                 </Nav.Link>
@@ -87,7 +92,8 @@ export const CustomNav = () => {
             <Nav.Link
               as={NavLink}
               to="/cart"
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className="navItem"
+              activeClassName="active"
             >
               <div style={{ position: "relative" }}>
                 <CiShoppingCart
