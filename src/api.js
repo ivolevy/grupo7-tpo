@@ -124,9 +124,6 @@ export const getProductById = async (productId) => {
 	try {
 		const response = await fetch(`${API_BASE_URL}/product/${productId}`, {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
 		});
 
 		if (!response.ok) {
