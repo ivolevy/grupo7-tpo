@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getProductById } from "./api";
-import { CustomNav as Nav } from "./assets/components/Nav";
 import "./assets/css/Main.css";
 import "./assets/css/Product.css";
 import { addtoCart } from "./redux/reducers/cartSlice";

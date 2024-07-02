@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { CustomNav } from "./assets/components/Nav";
 import { ManageProducts } from './assets/components/admin/ManageProducts';
 import { CreateProduct } from './assets/components/admin/CreateProduct';
 import { ManageUsers } from './assets/components/admin/ManageUsers';
@@ -33,7 +32,6 @@ export const AdminView = () => {
 
   return (
     <>
-      <CustomNav />
       <div className="flex min-h-[50vh]">
         {/* Sidebar */}
         <div className="sidebar bg-blue-bizio text-white w-1/5">

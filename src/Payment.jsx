@@ -1,4 +1,3 @@
-import { CustomNav } from "./assets/components/Nav";
 import React, { useState } from 'react';
 
 const PaymentForm = () => {
@@ -149,7 +148,6 @@ const PaymentForm = () => {
 export const Payment = () => {
   return (
     <>
-      <CustomNav />
       <div className="h-auto">
         <PaymentForm />
       </div>

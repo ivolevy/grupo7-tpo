@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getSingleUser } from "./api";
-import { CustomNav } from "./assets/components/Nav";
 
 export const UserView = () => {
 	const [view, setView] = useState("perfil");
@@ -30,7 +29,6 @@ export const UserView = () => {
 	if (loading) return <div>...Cargando</div>;
 	return (
 		<>
-			<CustomNav />
 			<div className="flex h-auto">
 				{/* sidebar */}
 				<div className="sidebar bg-blue-bizio text-white w-1/5">

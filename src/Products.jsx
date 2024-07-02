@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getProducts } from "./api";
 import { Footer } from "./assets/components/Footer";
-import { CustomNav } from "./assets/components/Nav";
 import CategoryFilter from "./assets/components/products/CategoryFilter";
 import PriceFilter from "./assets/components/products/PriceFilter";
 import { CardProduct } from "./assets/components/products/comp/CardProduct";
@@ -50,7 +49,6 @@ export const Products = () => {
 
 	return (
 		<>
-			<CustomNav />
 			<div className="flex flex-col sm:flex-row">
 				<aside className="w-full sm:w-1/6 bg-gray-element p-4 rounded-md mt-6 mb-24">
 					<CategoryFilter setCategoryFilter={setCategoryFilter} />

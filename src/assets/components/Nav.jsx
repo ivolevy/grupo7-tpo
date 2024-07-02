@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,10 +9,21 @@ import "../css/Nav.css";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaRegUser } from "react-icons/fa";
 import { NavDropdown } from "react-bootstrap";
+import { useAuth } from "../../authContext";
 import { useSelector } from "react-redux";
 
 export const CustomNav = () => {
+  const { user, logout, loading } = useAuth();
   const cartQuantity = useSelector((state) => state.cart.cartQuantity);
+
+  useEffect(() => {
+    // Aquí podrías realizar cualquier acción adicional al iniciar sesión, si es necesario
+    // Por ejemplo, podrías redirigir al usuario a otra página o cargar datos adicionales.
+  }, [user]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <Navbar
@@ -62,32 +73,54 @@ export const CustomNav = () => {
             >
               Contact
             </Nav.Link>
-            <NavDropdown
-              title={<FaRegUser className="text-blue-bizio" />}
-              id="basic-nav-dropdown"
-              className="navItem"
-            >
-              <NavDropdown.Item>
-                <Nav.Link
-                  as={NavLink}
-                  to="/login"
-                  className="navItem"
-                  activeClassName="active"
-                >
-                  Login
-                </Nav.Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Nav.Link
-                  as={NavLink}
-                  to="/register"
-                  className="navItem"
-                  activeClassName="active"
-                >
-                  Register
-                </Nav.Link>
-              </NavDropdown.Item>
-            </NavDropdown>
+            {user ? (
+              <NavDropdown
+                title={<FaRegUser className="text-blue-bizio" />}
+                id="basic-nav-dropdown"
+                className="navItem"
+              >
+                <NavDropdown.Item>
+                  <Nav.Link
+                    as={NavLink}
+                    to="/profile-user"
+                    className="navItem"
+                    activeClassName="active"
+                  >
+                  Profile
+                  </Nav.Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={logout} className="navItem">
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <NavDropdown
+                title={<FaRegUser className="text-blue-bizio" />}
+                id="basic-nav-dropdown"
+                className="navItem"
+              >
+                <NavDropdown.Item>
+                  <Nav.Link
+                    as={NavLink}
+                    to="/login"
+                    className="navItem"
+                    activeClassName="active"
+                  >
+                    Login
+                  </Nav.Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Nav.Link
+                    as={NavLink}
+                    to="/register"
+                    className="navItem"
+                    activeClassName="active"
+                  >
+                    Register
+                  </Nav.Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            )}
             <div className="line"></div>
             <Nav.Link
               as={NavLink}
