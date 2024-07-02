@@ -68,6 +68,10 @@ export const createProduct = async (
 		body: formData,
 	});
 
+	if (response.status === 423) {
+		throw new Error("No autorizado");
+	}
+
 	if (!response.ok) {
 		throw new Error("Error al crear el producto");
 	}
