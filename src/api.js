@@ -82,9 +82,6 @@ export const createProduct = async (
 export const getProducts = async () => {
 	const response = await fetch(`${API_BASE_URL}/product`, {
 		method: "GET",
-		headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-		},
 	});
 
 	if (!response.ok) {
@@ -127,9 +124,6 @@ export const getProductById = async (productId) => {
 	try {
 		const response = await fetch(`${API_BASE_URL}/product/${productId}`, {
 			method: "GET",
-			headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
-			},
 		});
 
 		if (!response.ok) {
@@ -332,6 +326,22 @@ export const updateDiscount = async (discount) => {
 
 	if (!response.ok) {
 		throw new Error("Error al actualizar el descuento");
+	}
+
+	return response.json();
+};
+
+export const getUserOrders = async () => {
+	const response = await fetch(`${API_BASE_URL}/order/userOrders`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error(response);
 	}
 
 	return response.json();

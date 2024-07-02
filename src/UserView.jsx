@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getSingleUser } from "./api";
+import { getSingleUser, getUserOrders } from "./api";
 
 export const UserView = () => {
 	const [view, setView] = useState("perfil");
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [orders, setOrders] = useState(null);
 
 	const handleViewChange = (viewName) => {
 		setView(viewName);
@@ -24,7 +25,22 @@ export const UserView = () => {
 		fetchUser();
 	}, []);
 
+	useEffect(() => {
+		const fetchUserOrders = async () => {
+			try {
+				const userOrders = await getUserOrders();
+				setOrders(userOrders);
+				setLoading(false);
+			} catch (error) {
+				console.log(error);
+			}
+		};
+
+		fetchUserOrders();
+	}, []);
+
 	console.log(user);
+	console.log(orders);
 
 	if (loading) return <div>...Cargando</div>;
 	return (
