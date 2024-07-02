@@ -5,7 +5,6 @@ import { createProduct } from "../../../api";
 export const CreateProduct = ({ categories }) => {
 	const [createSuccess, setCreateSuccess] = useState(false);
 	const [error, setError] = useState(null);
-	const [validacion, setValidacion] = useState(false);
 	const [productData, setProductData] = useState({
 		name: "",
 		description: "",
