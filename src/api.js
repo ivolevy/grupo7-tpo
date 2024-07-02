@@ -289,6 +289,10 @@ export const createDiscount = async (
 		body: JSON.stringify({ code, percentage, startDate, endDate, active }),
 	});
 
+	if (response.status === 423) {
+		throw new Error("No autorizado");
+	}
+
 	if (!response.ok) {
 		throw new Error("Error al crear el descuento");
 	}
