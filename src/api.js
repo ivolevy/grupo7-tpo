@@ -95,6 +95,30 @@ export const getProducts = async () => {
 	}
 };
 
+export const getProductsAdmin = async () => {
+	const response = await fetch(`${API_BASE_URL}/product/admin`, {
+		method: "GET",
+		headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+
+	if (response.status === 423) {
+		throw new Error("Acceso no autorizado");
+	}
+
+	if (!response.ok) {
+		throw new Error("Error al obtener los productos");
+	}
+
+	try {
+		const productsData = await response.json();
+		return productsData;
+	} catch (error) {
+		throw new Error("Error al parsear los datos de los productos");
+	}
+};
+
 export const getProductById = async (productId) => {
 	try {
 		const response = await fetch(`${API_BASE_URL}/product/${productId}`, {
@@ -127,6 +151,10 @@ export const getUsers = async () => {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		},
 	});
+
+	if (response.status === 423) {
+		throw new Error("Acceso no autorizado");
+	}
 
 	if (!response.ok) {
 		throw new Error("Error al obtener los usuarios");
