@@ -4,32 +4,34 @@ import { getSingleUser } from "./api";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [authenticate, setauthenticate] = useState(false);
+  const [role, setrole] = useState(nule);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      getSingleUser()
-        .then((user) => setUser(user))
-        .catch((error) => console.error("Error fetching user data:", error))
-        .finally(() => setLoading(false));
-    } else {
-      setLoading(false);
-    }
+      setauthenticate(true)
+      const userRole = localStorage.getItem('role')
+      setrole(userRole)
+    } 
   }, []);
 
-  const login = (userData) => {
-    setUser(userData);
+  const login = (token, userRole) => {
+    localStorage.setItem('token',token)
+    localStorage.setItem('role',userRole)
+    setauthenticate(true)
+    setrole(userRole)
   };
 
   const logout = () => {
-    localStorage.removeItem("token");
-    setUser(null);
+    localStorage.removeItem('token')
+    localStorage.removeItem('role')
+    setauthenticate(false)
+    setrole(null)
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ role, login, logout, authenticate }}>
       {children}
     </AuthContext.Provider>
   );

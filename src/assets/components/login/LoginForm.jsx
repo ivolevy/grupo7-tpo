@@ -41,10 +41,7 @@ export function LoginForm() {
     let formValid = true;
     let pattern = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
-    if (!email.trim()) {
-      setError(true);
-      formValid = false;
-    } else if (!pattern.test(email)) {
+    if (!email.trim() || !pattern.test(email)) {
       setError(true);
       formValid = false;
     }
@@ -65,6 +62,9 @@ export function LoginForm() {
         const { email, password } = formData;
         const data = await login(email, password);
         localStorage.setItem("token", data.access_token);
+
+      
+        // Redirigir al usuario al inicio
         navigate("/");
       } catch (error) {
         setError(true);
