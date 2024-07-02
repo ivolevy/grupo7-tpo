@@ -39,7 +39,6 @@ export const UserView = () => {
 		fetchUserOrders();
 	}, []);
 
-	console.log(user);
 	console.log(orders);
 
 	if (loading) return <div>...Cargando</div>;
@@ -82,11 +81,19 @@ export const UserView = () => {
 					{view === "compras" && (
 						<div>
 							<h3 className="text-xl mb-4">Historial de Compras</h3>
-							<ul>
-								<li>Producto 1 - $100</li>
-								<li>Producto 2 - $50</li>
-								<li>Producto 3 - $75</li>
-							</ul>
+							{orders.map((order) => (
+								<div key={order.id}>
+									<p>Fecha: {order.orderDate}</p>
+									{order.orderItems.map((item) => (
+										<p key={item.id}>
+											Producto {item.id}: {item.productName} - Cantidad:
+											{item.quantity} - Precio : ${item.price}
+										</p>
+									))}
+									Total: ${order.totalAmount}
+									<hr></hr>
+								</div>
+							))}
 						</div>
 					)}
 				</div>

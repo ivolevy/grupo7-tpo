@@ -15,7 +15,8 @@ const cartSlice = createSlice({
 	reducers: {
 		addtoCart(state, action) {
 			const itemIndex = state.cartItems.findIndex(
-				(item) => item.id === action.payload.id
+				(item) => item.id === action.payload.productId,
+				console.log(action.payload)
 			);
 
 			if (itemIndex >= 0) {
