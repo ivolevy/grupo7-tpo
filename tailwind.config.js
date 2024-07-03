@@ -4,6 +4,7 @@ const colors = require("tailwindcss/colors");
 module.exports = {
 	content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
 	theme: {
+		important: "#root",
 		extend: {
 			colors: {
 				"blue-bizio": "#00b8fc",

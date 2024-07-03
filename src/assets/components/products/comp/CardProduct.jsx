@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import "../../../css/Main.css";
 
 export const CardProduct = ({
 	desc,
@@ -14,7 +15,7 @@ export const CardProduct = ({
 
 	return (
 		<div>
-			<Link to={`/product/${productId}`} className="card-link">
+			<Link to={`/product/${productId}`} className="card-link no-underline">
 				<article className="rounded-xl bg-gray-element p-3 shadow-lg hover:border-blue-bizio duration-300 border-2 border-transparent">
 					<div className="relative flex items-end overflow-hidden rounded-xl">
 						<img
@@ -25,7 +26,7 @@ export const CardProduct = ({
 					</div>
 
 					<div className="mt-1 p-2 h-1/3">
-						<h2 className="text-white h-9">{desc}</h2>
+						<h2 className="text-white   no-underline h-9">{desc}</h2>
 
 						<div className="flex items-center justify-between space-y-1 mt-4">
 							<div>
