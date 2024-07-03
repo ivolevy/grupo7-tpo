@@ -374,7 +374,7 @@ export const createOrder = async (orderItems) => {
 		const responseData = await response.json();
 		return responseData;
 	} catch (error) {
-		console.error("Error en createOrder:", error);
+		// console.error("Error en createOrder:", error);
 		throw error;
 	}
 };

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { createOrder } from "./api";
 import { CartItem } from "./assets/components/cart/CartProduct";
 import {
 	addtoCart,
 	applyDiscount,
-	checkOut,
 	clearCart,
 	decreaseCart,
 	getTotals,
@@ -51,30 +49,7 @@ export const Cart = () => {
 			setNotification("El carrito está vacío");
 			return;
 		}
-
-		setIsLoading(true);
-		try {
-			const orderItems = items.map((item) => ({
-				productId: item.productId,
-				quantity: item.cartQuantity,
-			}));
-
-			const orderRequest = {
-				orderItems: orderItems,
-			};
-			const newOrder = await createOrder(orderRequest);
-
-			console.log("Orden creada:", newOrder);
-
-			dispatch(checkOut());
-			setNotification("Orden creada exitosamente");
-			navigate("/cart/payment");
-		} catch (error) {
-			console.error("Error al crear la orden:", error);
-			setNotification("Error al crear la orden: " + error.message);
-		} finally {
-			setIsLoading(false);
-		}
+		navigate("/cart/payment");
 	};
 
 	const handleChange = (e) => {
