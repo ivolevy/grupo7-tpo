@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { PaymentContext } from "./PaymentContext";
 import { CartItem } from "./assets/components/cart/CartProduct";
 import { validateDiscount } from "./api";
 import {
@@ -13,6 +14,7 @@ import {
 
 export const Cart = () => {
 	const cart = useSelector((state) => state.cart);
+	const { setIsCheckoutComplete } = useContext(PaymentContext);
 	const items = cart.cartItems;
 	const [formData, setFormData] = useState({
 		discountCode: "",
@@ -49,6 +51,7 @@ export const Cart = () => {
 			setNotification("El carrito está vacío");
 			return;
 		}
+		setIsCheckoutComplete(true);
 		navigate("/cart/payment");
 	};
 

@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { createOrder, applyDiscount } from "./api";
 import { checkOut } from "./redux/reducers/cartSlice";
+import { PaymentContext } from "./PaymentContext";
 
 const PaymentForm = () => {
 	const [cardType, setCardType] = useState("");
 	const [cardNumber, setCardNumber] = useState("");
 	const [cvv, setCVV] = useState("");
 	const [dni, setDNI] = useState("");
+	const { setIsPaymentComplete } = useContext(PaymentContext);
 	const [cardHolder, setCardHolder] = useState("");
 
 	const handleCardTypeChange = (e) => {
@@ -49,6 +51,7 @@ const PaymentForm = () => {
 			newOrder.totalAmount = newOrder.totalAmount - newOrder.totalAmount * percentage.discountPercentage / 100;
 
 			dispatch(checkOut());
+			setIsPaymentComplete(true);
 			setNotification("Orden creada exitosamente");
 			navigate("/PurchaseComplete", { state: { order: newOrder } });
 		} catch (error) {
