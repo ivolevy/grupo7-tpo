@@ -75,7 +75,6 @@ export const UserView = () => {
 							<p>Nombre: {user.firstname}</p>
 							<p>Apellido: {user.lastName}</p>
 							<p>Email: {user.email}</p>
-							<p>Rol: {user.role}</p>
 						</div>
 					)}
 					{view === "compras" && (

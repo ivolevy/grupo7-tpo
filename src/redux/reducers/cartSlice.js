@@ -24,7 +24,7 @@ const cartSlice = createSlice({
 				state.cartQuantity += 1;
 				toast.info("Increased product quantity", {
 					position: "top-center",
-					autoClose: 5000,
+					autoClose: 2000,
 					hideProgressBar: false,
 					closeOnClick: true,
 					pauseOnHover: true,
@@ -38,7 +38,7 @@ const cartSlice = createSlice({
 				state.cartQuantity += 1;
 				toast.success("Item added to the cart", {
 					position: "top-center",
-					autoClose: 5000,
+					autoClose: 2000,
 					hideProgressBar: false,
 					closeOnClick: true,
 					pauseOnHover: true,
@@ -83,7 +83,7 @@ const cartSlice = createSlice({
 			state.cartItems = [];
 			toast.success("Compra hecha", {
 				position: "top-center",
-				autoClose: 3000, // Cerrar automáticamente después de 3 segundos
+				autoClose: 2000, 
 				hideProgressBar: false,
 				closeOnClick: true,
 				pauseOnHover: true,
