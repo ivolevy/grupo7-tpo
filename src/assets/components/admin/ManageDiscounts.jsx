@@ -93,15 +93,11 @@ export const ManageDiscounts = () => {
 			) : (
 				<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 					{discounts.map((discount) => (
-						<div
-							key={discount.discountId}
-							className="border rounded-lg p-4 shadow-lg"
-						>
+						<div key={discount.discountId} className="border rounded-lg p-4 shadow-lg">
 							<div>
 								<h5 className="text-lg font-bold">{discount.code}</h5>
 								<p>Porcentaje: {discount.percentage}%</p>
-								<p>Fecha de Expiración: {discount.endDate}</p>
-								<p>Activo: {discount.active ? "✅" : "⛔"}</p>
+								<p>Activo: {discount.active ? '✅' : '⛔'}</p>
 							</div>
 							<div className="flex justify-end mt-4">
 								<button
@@ -134,5 +130,5 @@ export const ManageDiscounts = () => {
 				discount={discountToEdit}
 			/>
 		</div>
-	);
+	)
 };
