@@ -60,6 +60,5 @@ CardProduct.propTypes = {
 	desc: PropTypes.string.isRequired,
 	precio: PropTypes.number.isRequired,
 	productId: PropTypes.number.isRequired,
-	discounted: PropTypes.bool.isRequired,
 	discountAmount: PropTypes.number.isRequired,
 };

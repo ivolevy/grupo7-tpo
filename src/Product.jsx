@@ -112,7 +112,3 @@ export const Product = () => {
 		</>
 	);
 };
-
-Product.propTypes = {
-	products: PropTypes.array.isRequired,
-};

@@ -5,8 +5,6 @@ const initialState = {
 	cartItems: [],
 	cartQuantity: 0,
 	cartTotal: 0,
-	discountApplied: false,
-	discountPercentage: 0,
 };
 
 const cartSlice = createSlice({
@@ -89,46 +87,6 @@ const cartSlice = createSlice({
 				pauseOnHover: true,
 				draggable: true,
 			});
-		},
-		applyDiscount(state, action) {
-			if (state.discountApplied) {
-				if (action.payload === "BIZIO15") {
-					return;
-				}
-			}
-			if (!action.payload) {
-				return;
-			}
-			if (state.cartItems.length <= 0) {
-				return;
-			}
-			if (action.payload === "BIZIO15") {
-				state.discountApplied = true;
-				state.discountPercentage = 0.15;
-				toast.info("Discount applied: 15%", {
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "colored",
-				});
-			} else {
-				state.discountApplied = false;
-				state.discountPercentage = 0;
-				toast.error("Invalid discount code", {
-					position: "top-center",
-					autoClose: 5000,
-					hideProgressBar: false,
-					closeOnClick: true,
-					pauseOnHover: true,
-					draggable: true,
-					progress: undefined,
-					theme: "colored",
-				});
-			}
 		},
 		getTotals(state) {
 			let { total, quantity } = state.cartItems.reduce(

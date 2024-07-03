@@ -4,7 +4,6 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { AdminView } from "./AdminView";
 import { Cart } from "./Cart";
-import { CheckOut } from "./Checkout";
 import { Contact } from "./Contact";
 import { Home } from "./Home";
 import { Login } from "./Login";
@@ -16,12 +15,12 @@ import { UserView } from "./UserView";
 import { AdminNav } from "./assets/components/navs/AdminNav";
 import { GuestNav } from "./assets/components/navs/GuestNav";
 import { UserNav } from "./assets/components/navs/UserNav";
-
 import "./assets/css/Nav.css";
-
 import "./assets/css/Main.css";
 import { AuthContext } from "./authContext";
 import { store } from "./redux/store";
+import { PurchaseComplete } from "./PurchaseComplete";
+
 export const App = () => {
 	const { isAuthenticated, role } = useContext(AuthContext);
 
@@ -61,10 +60,10 @@ export const App = () => {
 						<Route path="/profile-user" element={<UserView />} />
 						<Route path="/profile-admin" element={<AdminView />} />
 						<Route path="/cart" element={<Cart />} />
+                        <Route path="/PurchaseComplete" element={<PurchaseComplete />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
 						<Route path="/contact" element={<Contact />} />
-						<Route path="/checkout" element={<CheckOut />} />
 					</Routes>
 				</Provider>
 			</main>

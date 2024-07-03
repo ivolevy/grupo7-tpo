@@ -24,9 +24,10 @@ const CategoryFilter = ({ setCategoryFilter }) => {
         <select
           id="category"
           onChange={handleCategoryChange}
+          defaultValue={""}
           className="block w-full px-4 py-2 pr-8 leading-tight bg-white border border-gray-300 rounded-md shadow-sm appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
         >
-          <option disabled selected hidden>Categorías</option>
+          <option disabled value="">Categorías</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}

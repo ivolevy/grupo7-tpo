@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { CartItem } from "./assets/components/cart/CartProduct";
+import { validateDiscount } from "./api";
 import {
 	addtoCart,
-	applyDiscount,
 	clearCart,
 	decreaseCart,
 	getTotals,
@@ -16,13 +16,13 @@ export const Cart = () => {
 	const items = cart.cartItems;
 	const [formData, setFormData] = useState({
 		discountCode: "",
-		discountPercentage: 0,
 	});
 	const [notification, setNotification] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
-
+	const [finalTotal, setFinalTotal] = useState(0);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
+	const [descuento, setDescuento] = useState(false);
 
 	useEffect(() => {
 		dispatch(getTotals());
@@ -60,8 +60,21 @@ export const Cart = () => {
 		}));
 	};
 
-	const handleApplyDiscount = () => {
-		dispatch(applyDiscount(formData.discountCode));
+	const handleApplyDiscount = async () => {
+		try {
+			const discount = await validateDiscount(formData.discountCode);
+			localStorage.setItem("discount", JSON.stringify(discount));
+
+			const percentage = JSON.parse(localStorage.getItem("discount"));
+			setFinalTotal(cart.cartTotal - cart.cartTotal * percentage.discountPercentage / 100)
+
+			setDescuento(true);
+
+			setDiscountPercentage(discount);
+			setNotification("Descuento aplicado correctamente");
+		} catch (error) {
+			setNotification("Código de descuento inválido");
+		}
 	};
 
 	return (
@@ -81,7 +94,7 @@ export const Cart = () => {
 									price={item.price}
 									src={`data:image/jpeg;base64,${item.image}`}
 									quantity={item.cartQuantity}
-									key={item.id}
+									key={item.name}
 									funcionEliminar={() => handleRemoveFromCart(item)}
 									funcionDecrementar={() => handleProductDecrease(item)}
 									funcionIncrementar={() => handleProductIncrease(item)}
@@ -100,7 +113,7 @@ export const Cart = () => {
 									{cart.cartQuantity}
 								</p>
 								<p className="mb-1 text-lg">
-									{parseFloat(cart.cartTotal).toFixed(2)} $USD
+									{(descuento ? finalTotal : cart.cartTotal).toFixed(2)} $USD
 								</p>
 								<p className="text-sm text-gray-700">including IVA</p>
 							</div>

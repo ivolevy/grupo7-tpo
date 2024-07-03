@@ -379,4 +379,35 @@ export const createOrder = async (orderItems) => {
 	}
 };
 
-//aaa
+export const validateDiscount = async (code) => {
+	const response = await fetch(`${API_BASE_URL}/discount/getDiscount/${code}`, {
+		method: "GET",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error("Código de descuento inválido");
+	}
+
+	return response.json();
+};
+
+
+export const applyDiscount = async (percentage, id) => {
+	const response = await fetch(`${API_BASE_URL}/discount/activateDiscount/${percentage}/${id}`, {
+		method: "PUT",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error("Código de descuento inválido");
+	}
+
+	return;
+};

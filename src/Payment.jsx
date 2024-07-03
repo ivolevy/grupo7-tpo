@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { createOrder } from "./api";
+import { createOrder, applyDiscount } from "./api";
 import { checkOut } from "./redux/reducers/cartSlice";
 
 const PaymentForm = () => {
@@ -38,13 +38,19 @@ const PaymentForm = () => {
 				quantity: item.cartQuantity,
 			}));
 
+			const percentage = JSON.parse(localStorage.getItem("discount"));
+
 			const newOrder = await createOrder(orderItems);
 
-			console.log("Orden creada:", newOrder);
+			if (percentage) {
+				await applyDiscount(percentage.discountPercentage , newOrder.id);
+			}
+
+			newOrder.totalAmount = newOrder.totalAmount - newOrder.totalAmount * percentage.discountPercentage / 100;
 
 			dispatch(checkOut());
 			setNotification("Orden creada exitosamente");
-			navigate("/checkout");
+			navigate("/PurchaseComplete", { state: { order: newOrder } });
 		} catch (error) {
 			if (error == "Error: No hay stock") {
 				toast.error("No hay stock", {

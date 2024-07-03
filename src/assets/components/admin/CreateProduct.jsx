@@ -14,7 +14,7 @@ export const CreateProduct = ({ categories }) => {
     price: "",
     discounted: false,
     discountAmount: 0,
-    images: [],
+    image: null,
     stock: "",
   });
 
@@ -61,11 +61,11 @@ export const CreateProduct = ({ categories }) => {
   }, [error]);
 
   const handleChange = (e) => {
-    const { name, value, type, files } = e.target;
+    const { name, value, type } = e.target;
     if (type === "file") {
       setProductData((prevState) => ({
         ...prevState,
-        images: [...prevState.images, ...Array.from(files)],
+        image: e.target.files[0],
       }));
     } else if (type === "checkbox") {
       setProductData((prevState) => ({
@@ -81,13 +81,6 @@ export const CreateProduct = ({ categories }) => {
     }
   };
 
-  const handleDeleteImage = (index) => {
-    setProductData((prevState) => ({
-      ...prevState,
-      images: prevState.images.filter((_, i) => i !== index),
-    }));
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -100,7 +93,7 @@ export const CreateProduct = ({ categories }) => {
         price,
         discounted,
         discountAmount,
-        images,
+        image,
         stock,
       } = productData;
 
@@ -112,7 +105,7 @@ export const CreateProduct = ({ categories }) => {
         price,
         discounted,
         discountAmount,
-        images,
+        image,
         stock
       );
       setCreateSuccess(true);
@@ -278,46 +271,30 @@ export const CreateProduct = ({ categories }) => {
             />
           </div>
         )}
-
         <div className="col-span-2">
           <label
-            htmlFor="productImages"
+            htmlFor="productImage"
             className="block text-sm font-medium text-gray-700"
           >
-            Imágenes
+            Imagen
           </label>
           <input
             type="file"
-            id="productImages"
-            name="images"
+            id="productImage"
+            name="image"
             accept="image/*"
             onChange={handleChange}
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            multiple
             required
           />
-          <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
-            {productData.images.map((image, index) => (
-              <div
-                key={`image-${index}`}
-                className="relative rounded-md border border-gray-300"
-              >
-                <img
-                  src={URL.createObjectURL(image)}
-                  alt={`Preview-${index}`}
-                  className="rounded-md"
-                  style={{ maxWidth: "100%", maxHeight: "150px" }}
-                />
-                <button
-                  type="button"
-                  onClick={() => handleDeleteImage(index)}
-                  className="absolute top-0 right-0 mt-1 mr-1 text-red-600 bg-white rounded-full p-1 shadow-sm"
-                >
-                  <FaTrash />
-                </button>
-              </div>
-            ))}
-          </div>
+          {productData.image && (
+            <img
+              src={URL.createObjectURL(productData.image)}
+              alt="Preview"
+              className="mt-2 rounded-md border border-gray-300"
+              style={{ maxWidth: "200px" }}
+            />
+          )}
         </div>
 
         <div className="col-span-2 mt-4">
