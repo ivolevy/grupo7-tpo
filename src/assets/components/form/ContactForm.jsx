@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { FaTrashAlt } from 'react-icons/fa';
+import { sendEmail } from '../../../api';
 
 export const ContactForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
     problem: '',
     description: '',
-    photos: [],
   });
 
   const handleChange = (e) => {
@@ -24,26 +23,11 @@ export const ContactForm = ({ onSubmit }) => {
     }
   };
 
-  const handleRemovePhoto = (index) => {
-    setFormData((prevState) => {
-      const updatedPhotos = [...prevState.photos];
-      updatedPhotos.splice(index, 1);
-      return {
-        ...prevState,
-        photos: updatedPhotos,
-      };
-    });
-  };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData({
-      fullName: '',
-      problem: '',
-      description: '',
-      photos: [],
-    });
+    await sendEmail(formData.problem, formData.description);
+    alert('Email sent successfully');
   };
 
   return (
@@ -121,23 +105,6 @@ export const ContactForm = ({ onSubmit }) => {
             className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-900 text-gray-900"
           />
           <div className="mt-2 grid grid-cols-3 gap-4">
-            {formData.photos.map((photo, index) => (
-              <div key={index} className="relative">
-                <img
-                  src={URL.createObjectURL(photo)}
-                  alt={`Preview ${index}`}
-                  className="rounded-md border border-gray-300"
-                  style={{ maxWidth: '100%', height: 'auto' }}
-                />
-                <button
-                  type="button"
-                  onClick={() => handleRemovePhoto(index)}
-                  className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-1 transform translate-x-2 -translate-y-2"
-                >
-                  <FaTrashAlt />
-                </button>
-              </div>
-            ))}
           </div>
         </div>
 

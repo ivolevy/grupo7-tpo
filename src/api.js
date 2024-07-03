@@ -411,3 +411,21 @@ export const applyDiscount = async (percentage, id) => {
 
 	return;
 };
+
+export const sendEmail = async (subject, message) => {
+
+	const response = await fetch(`${API_BASE_URL}/user/contact/${subject}/${message}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		},
+		body: JSON.stringify({ subject, message }),
+	});
+
+	if (!response.ok) {
+		throw new Error("Error al enviar el email");
+	}
+
+	return response.json();
+};
