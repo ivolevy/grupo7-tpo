@@ -47,8 +47,8 @@ export const UserView = () => {
 			<div className="flex h-auto">
 				{/* sidebar */}
 				<div className="sidebar bg-blue-bizio text-white w-1/5">
-					<h2 className="text-2xl p-4">Iñaki</h2>
-					<ul>
+					<h2 className="text-2xl p-4"></h2>
+					<ul className="mx-auto p-0">
 						<li
 							className={`p-4 cursor-pointer ${
 								view === "perfil" ? "bg-gray-700" : ""
