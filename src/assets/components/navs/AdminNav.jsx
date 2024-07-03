@@ -69,7 +69,14 @@ export const AdminNav = () => {
 								to="/profile-admin"
 								className="navItem"
 							>
-								Profile Admin
+								Admin Dashboard
+							</NavDropdown.Item>
+							<NavDropdown.Item
+								as={NavLink}
+								to="/profile-user"
+								className="navItem"
+							>
+								Profile
 							</NavDropdown.Item>
 							<NavDropdown.Item onClick={handleLogout} className="navItem">
 								Log out
