@@ -71,7 +71,7 @@ export const App = () => {
 						<Route path="/PurchaseComplete" element={<ProtectedRoute element={<PurchaseComplete />} condition={isPaymentComplete} redirectPath="/" />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/register" element={<Register />} />
-						<Route path="/contact" element={<Contact />} />
+						<Route path="/contact" element={<PrivateRoute element={<Contact />} roles={['USER']}></PrivateRoute>} />
 					</Routes>
 				</Provider>
 			</main>

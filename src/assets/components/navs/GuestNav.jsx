@@ -44,9 +44,6 @@ export const GuestNav = () => {
 						<Nav.Link as={NavLink} to="/products" className="navItem">
 							Products
 						</Nav.Link>
-						<Nav.Link as={NavLink} to="/contact" className="navItem">
-							Contact
-						</Nav.Link>
 						<NavDropdown
 							title={<FaRegUser className="text-blue-bizio" />}
 							id="basic-nav-dropdown"
