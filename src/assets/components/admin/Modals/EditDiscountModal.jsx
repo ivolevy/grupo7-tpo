@@ -5,8 +5,6 @@ export const EditDiscountModal = ({ isOpen, onClose, onSave, discount }) => {
         discountId: '',
         code: '',
         percentage: 0,
-        startDate: '',
-        endDate: '',
         active: false
     });
 
@@ -55,8 +53,6 @@ export const EditDiscountModal = ({ isOpen, onClose, onSave, discount }) => {
                                             {[
                                                 { label: "Código del descuento", type: "text", name: "code", id: "discountCode" },
                                                 { label: "Porcentaje", type: "number", name: "percentage", id: "discountPercentage" },
-                                                { label: "Fecha de inicio", type: "date", name: "startDate", id: "discountStartDate" },
-                                                { label: "Fecha de fin", type: "date", name: "endDate", id: "discountEndDate" },
                                             ].map(({ label, type, name, id }) => (
                                                 <div key={id}>
                                                     <label htmlFor={id} className="block text-sm font-medium text-gray-700">

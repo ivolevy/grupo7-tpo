@@ -4,6 +4,7 @@ import { sendEmail } from '../../../api';
 
 export const ContactForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
+    fullName: "",
     problem: '',
     description: '',
   });
@@ -26,7 +27,7 @@ export const ContactForm = ({ onSubmit }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await sendEmail(formData.problem, formData.description);
+    await sendEmail(formData.problem, formData.description, formData.fullName);
     alert('Email sent successfully');
   };
 
@@ -89,21 +90,6 @@ export const ContactForm = ({ onSubmit }) => {
         </div>
 
         <div className="col-span-2">
-          <label
-            htmlFor="photo"
-            className="block text-sm font-medium text-gray-400 text-left"
-          >
-            Fotos (opcional)
-          </label>
-          <input
-            type="file"
-            id="photo"
-            name="photo"
-            accept="image/*"
-            onChange={handleChange}
-            multiple
-            className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm bg-gray-900 text-gray-900"
-          />
           <div className="mt-2 grid grid-cols-3 gap-4">
           </div>
         </div>

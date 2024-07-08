@@ -28,7 +28,6 @@ export const PurchaseComplete = () => {
                             </div>
                             <div className="text-right">
                                 <p className="text-lg font-semibold">${product.price}</p>
-                                <p className="text-sm">Total: ${product.quantity * product.price}</p>
                             </div>
                         </div>
                     ))}

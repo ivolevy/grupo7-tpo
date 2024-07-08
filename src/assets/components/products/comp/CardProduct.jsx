@@ -21,26 +21,24 @@ export const CardProduct = ({
 						<img
 							src={`data:image/jpeg;base64,${image}`}
 							alt="Product Photo"
-							className=" w-52 h-48"
+							className="w-52 h-48"
 						/>
 					</div>
 
 					<div className="mt-1 p-2 h-1/3">
-						<h2 className="text-white   no-underline h-9">{desc}</h2>
+						<h2 className="text-white no-underline h-20">{desc}</h2>
 
-						<div className="flex items-center justify-between space-y-1 mt-4">
+						<div className="flex items-center justify-between mt-4">
 							<div>
 								{discounted ? (
-									<>
-										<p className="text-lg text-blue-500 pr-6">
-											<span className="text-sm line-through text-blue-bizio">
-												${precio.toFixed(2)}
-											</span>{" "}
-											<span className="text-lg text-red-500 ml-2">
-												${formattedPrice}
-											</span>
-										</p>
-									</>
+									<p className="text-lg text-blue-500 pr-6">
+										<span className="text-sm line-through text-blue-bizio">
+											${precio.toFixed(2)}
+										</span>
+										<span className="text-lg text-red-500 ml-2">
+											${formattedPrice}
+										</span>
+									</p>
 								) : (
 									<p className="text-lg text-blue-bizio pr-2">
 										${precio.toFixed(2)}

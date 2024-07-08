@@ -412,9 +412,9 @@ export const applyDiscount = async (percentage, id) => {
 	return;
 };
 
-export const sendEmail = async (subject, message) => {
+export const sendEmail = async (subject, message, fullName) => {
 
-	const response = await fetch(`${API_BASE_URL}/user/contact/${subject}/${message}`, {
+	const response = await fetch(`${API_BASE_URL}/user/contact/${subject}/${message}/${fullName}`, {
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",

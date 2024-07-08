@@ -50,6 +50,8 @@ const PaymentForm = () => {
 
 			newOrder.totalAmount = newOrder.totalAmount - newOrder.totalAmount * percentage.discountPercentage / 100;
 
+
+
 			dispatch(checkOut());
 			setIsPaymentComplete(true);
 			setNotification("Orden creada exitosamente");
