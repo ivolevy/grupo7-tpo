@@ -347,6 +347,7 @@ export const getUserOrders = async () => {
 	return response.json();
 };
 
+<<<<<<< Updated upstream
 export const createOrder = async (orderItems) => {
 	try {
 		const response = await fetch(`${API_BASE_URL}/order`, {
@@ -415,11 +416,18 @@ export const applyDiscount = async (percentage, id) => {
 export const sendEmail = async (subject, message, fullName) => {
 
 	const response = await fetch(`${API_BASE_URL}/user/contact/${subject}/${message}/${fullName}`, {
+=======
+export const addItemToOrder = async (productId) => {
+	const token = localStorage.getItem("token");
+
+	const response = await fetch(`${API_BASE_URL}/order/addItem/${productId}/${token}`, {
+>>>>>>> Stashed changes
 		method: "POST",
 		headers: {
 			"Content-Type": "application/json",
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		},
+<<<<<<< Updated upstream
 		body: JSON.stringify({ subject, message }),
 	});
 
@@ -429,3 +437,14 @@ export const sendEmail = async (subject, message, fullName) => {
 
 	return response.json();
 };
+=======
+		body: JSON.stringify({ productId, quantity }),
+	});
+
+	if (!response.ok) {
+		throw new Error(response);
+	}
+
+	return response.json();
+};
+>>>>>>> Stashed changes
